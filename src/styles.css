@@ -8,6 +8,10 @@
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+body{
+    background: #20212c;
+}
+
 .dark {
   background: #20212c;
   --color-bg: #20212c;
