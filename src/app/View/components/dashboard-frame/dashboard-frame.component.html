@@ -2,6 +2,8 @@
  
    <app-header/>
 
-   <app-sidebar/>
+   <app-sidebar [ngClass]="{'invisible':showsidebarservice.isSidebarShown}"/>
+
+   <app-show-sidebar (click)="showsidebarservice.toggleSidebar()" [ngClass]="{ 'invisible ':!showsidebarservice.isSidebarShown}" />
 
 </main>
