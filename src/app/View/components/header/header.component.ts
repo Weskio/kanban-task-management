@@ -10,9 +10,24 @@ import { ShowSidebarService } from '../../../controller/show-sidebar.service';
 })
 export class HeaderComponent {
   constructor(public showsidebar:ShowSidebarService) {}
+  isSmallScreen: boolean = false;
+
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event: Event) {
+  //   this.showsidebar.setInitialVisibility();
+  // }
+
+  ngOnInit(): void {
+    this.checkScreenSize();
+  }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+  onResize(event: any) {
+    this.checkScreenSize();
     this.showsidebar.setInitialVisibility();
+  }
+
+  checkScreenSize() {
+    this.isSmallScreen = window.innerWidth < 1024; 
   }
 }

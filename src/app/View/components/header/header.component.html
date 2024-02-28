@@ -6,9 +6,9 @@
       class="hidden lg:block h-6 mr-0 pr-32 mt-8 mb-5"
     />
 
-    <div class="launch pl-8 flex w-full lg:pt-8 lg:pb-5 cursor-pointer lg:non-cl" (click)="showsidebar.toggleSidebar()">
-        <div class="drop-down ml-5 lg:ml-0">
-      <div class="drop-head flex">
+    <div class="launch pl-8 flex w-full lg:pt-8 lg:pb-5 lg:non-cl">
+        <div class="drop-down ml-5 lg:ml-0 cursor-pointer lg:cursor-text"  (click)="isSmallScreen && showsidebar.toggleSidebar()">
+      <div class="drop-head flex" >
         <p class="text-white font-bold lg:text-2xl text-xl">Platform Launch</p>
         <img
           src="../../../../assets/icon-chevron-down.svg"

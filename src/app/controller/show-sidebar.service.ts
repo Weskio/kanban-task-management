@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ShowSidebarService {
   constructor() {}
 
-  isSidebarShown: boolean = true;
+  isSidebarShown: boolean = false;
 
   setInitialVisibility() {
     const screenWidth = window.innerWidth;
