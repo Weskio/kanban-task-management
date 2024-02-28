@@ -1,4 +1,16 @@
 <main class="">
+  @if(modalToggleService.isAddTaskModalShown){
+    <app-add-task/>
+  }
+
+  @if(modalToggleService.isAddColumnModalShown){
+    <app-add-column/>
+  }
+
+  @if(modalToggleService.isAddBoardShown){
     <app-add-board/>
+  }
+  
+
   <app-dashboard-frame />
 </main>

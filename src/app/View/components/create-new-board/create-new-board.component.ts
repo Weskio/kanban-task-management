@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
 
 @Component({
-  selector: 'app-add-task',
+  selector: 'app-create-new-board',
   standalone: true,
   imports: [],
-  templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.css'
+  templateUrl: './create-new-board.component.html',
+  styleUrl: './create-new-board.component.css'
 })
-export class AddTaskComponent {
+export class CreateNewBoardComponent {
 
   constructor(public modalToggleService: ModalToggleService){}
 

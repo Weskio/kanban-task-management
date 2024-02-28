@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalToggleService } from '../../../controller/modal-toggle.service';
 
 @Component({
   selector: 'app-add-board',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './add-board.component.css'
 })
 export class AddBoardComponent {
+
+  constructor(public modalToggleService: ModalToggleService){}
 
 }

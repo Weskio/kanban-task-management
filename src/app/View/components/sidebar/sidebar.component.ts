@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { ThemeToggleComponent } from "../theme-toggle/theme-toggle.component";
-import { AddBoardComponent } from "../add-board/add-board.component";
-import { BoardComponent } from "../board/board.component";
+import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
+import { BoardComponent } from '../board/board.component';
+import { CreateNewBoardComponent } from '../create-new-board/create-new-board.component';
 
 @Component({
-    selector: 'app-sidebar',
-    standalone: true,
-    templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.css',
-    imports: [ThemeToggleComponent, AddBoardComponent, BoardComponent]
+  selector: 'app-sidebar',
+  standalone: true,
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css',
+  imports: [ThemeToggleComponent, BoardComponent, CreateNewBoardComponent],
 })
-export class SidebarComponent {
-
-}
+export class SidebarComponent {}
