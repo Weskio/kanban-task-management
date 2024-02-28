@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { ShowSidebarService } from '../../../controller/show-sidebar.service';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
+import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { ModalToggleService } from '../../../controller/modal-toggle.service';
 })
 export class HeaderComponent {
 
-  constructor(public showsidebar:ShowSidebarService, public modalToggleService: ModalToggleService) {}
+  constructor(public showsidebar:ShowSidebarService, public modalToggleService: ModalToggleService, public dropdowntoggleservice: DropdownToggleService) {}
   isSmallScreen: boolean = false;
 
   // @HostListener('window:resize', ['$event'])
