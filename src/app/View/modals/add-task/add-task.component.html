@@ -109,24 +109,20 @@
           </div>
 
           <div class="col-span-2">
-            <select
-              id="category"
-              class="bg-transparent text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
-              formControlName="category"
+            <label
+              for="name"
+              class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >Subtasks</label
             >
-              <option selected="" class="bg-[#20212c] text-gray-400">
-                Todo
-              </option>
-              <option
-                value="TV"
-                class="bg-[#20212c] select-none hover:bg-white text-gray-400"
-              >
-                Doing
-              </option>
-              <option value="PC" class="bg-[#20212c] text-gray-400">
-                Done
-              </option>
-            </select>
+            <div
+            (click)="dropdownToggleService.dropdownToggle('status')"
+              class="bg-transparent cursor-pointer text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+            >Todo</div>
+
+            @if(dropdownToggleService.isStatusDropdownShown){
+               <app-task-dropdown />
+            }
+           
           </div>
         </div>
 

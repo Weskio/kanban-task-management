@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
+import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
 
 @Component({
   selector: 'app-add-board',
