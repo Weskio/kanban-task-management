@@ -16,6 +16,9 @@
     required=""
     formControlName="title"
   />
+  
+
+  @if(isDeleteSvgShown || i > 0){
 
   <svg
     class="w-8 h-8 mt-2 cursor-pointer text-gray-400 dark:text-white"
@@ -33,6 +36,7 @@
       d="M6 18 18 6m0 12L6 6"
     />
   </svg>
+}
 </div>
 
 }
