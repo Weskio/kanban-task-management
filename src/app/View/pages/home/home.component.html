@@ -2,7 +2,7 @@
   @if(modalToggleService.isAddTaskModalShown){
   <app-add-task />
   } @if(modalToggleService.isAddColumnModalShown){
-  <app-add-column />
+  <app-add-column [formTitle]="modalToggleService.formTitle" />
   } @if(modalToggleService.isAddBoardShown){
   <app-add-board />
   } @if(dropdowntoggleservice.isEditBoardDropdownShown){
@@ -11,26 +11,20 @@
 
   <app-dashboard-frame />
 
-  <div class="main flex lg:gap-80 ">
-
+  <div class="main overflow-x-auto w-[140vw] flex lg:gap-80">
     <div class="side-bar">
-        <app-sidebar [ngClass]="{ invisible: showSidebarService.isSidebarShown }" />
+      <app-sidebar
+        [ngClass]="{ invisible: showSidebarService.isSidebarShown }"
+      />
 
-  <app-show-sidebar
-    (click)="showSidebarService.toggleSidebar()"
-    [ngClass]="{ 'invisible ': !showSidebarService.isSidebarShown }"
-  />
+      <app-show-sidebar
+        (click)="showSidebarService.toggleSidebar()"
+        [ngClass]="{ 'invisible ': !showSidebarService.isSidebarShown }"
+      />
     </div>
 
-    <div class="columns overflow-y-auto z-20 mt-32 ml-6">
- <app-new-column/>
+    <div class="columns z-20 mt-32 ml-6">
+      <app-new-column />
     </div>
-   
-
   </div>
-
- 
- 
-
- 
 </main>

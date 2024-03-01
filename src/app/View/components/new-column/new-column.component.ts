@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalToggleService } from '../../../controller/modal-toggle.service';
 
 @Component({
   selector: 'app-new-column',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './new-column.component.css'
 })
 export class NewColumnComponent {
+
+  constructor(public modalToggleService: ModalToggleService) { }
 
 }

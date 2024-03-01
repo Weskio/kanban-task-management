@@ -1,3 +1,11 @@
-<main class="h-[75vh] rounded-lg w-80 bg-[#3e3f4e]">
-
+<main
+(click)="modalToggleService.modalToggle('add-column', 'Add Column')"
+  class="h-[80vh] group mb-12 cursor-pointer flex items-center gap-1 justify-center rounded-lg w-80 bg-gradient-to-b from-[#2b2c37] via-[#2b2c37] to-[#20212c]"
+>
+  <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" class="fill-[#828FA3] group-hover:fill-[#635FC7]">
+    <path
+      d="M7.368 12V7.344H12V4.632H7.368V0H4.656v4.632H0v2.712h4.656V12z"
+    />
+  </svg>
+  <p class="text-slate-400 text-2xl font-bold group-hover:text-[#635FC7]">New Column</p>
 </main>

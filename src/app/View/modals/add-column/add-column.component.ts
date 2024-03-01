@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ModalToggleService } from '../../../controller/modal-toggle.service';
 
 @Component({
   selector: 'app-add-column',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './add-column.component.css'
 })
 export class AddColumnComponent {
+
+  @Input() formTitle: string =''
+
+  constructor(
+    public modalToggleService: ModalToggleService
+    ) { }
 
 }
