@@ -1,4 +1,4 @@
-<!-- <main class="">
+<main class="">
   @if(modalToggleService.isAddTaskModalShown){
   <app-add-task />
   } @if(modalToggleService.isAddColumnModalShown){
@@ -8,6 +8,10 @@
   } @if(dropdowntoggleservice.isEditBoardDropdownShown){
   <app-edit-board-dropdown />
   }
+  @if(modalToggleService.isTaskDetailsShown){
+    <app-task-details/>
+  }
+
 
   <app-dashboard-frame />
  <app-sidebar
@@ -22,12 +26,12 @@
       />
     </div>
 
-    <div class="columns flex gap-7 mt-32 ml-3">
+    <div class="columns flex gap-7 mr-5 mt-32 ml-3">
       <app-column/>
       <app-new-column />
       
     </div>
   </div>
-</main> -->
+</main>
 
-<app-task-details/>
+

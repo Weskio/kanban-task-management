@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskDropdownComponent } from "../../shareables/task-dropdown/task-dropdown.component";
+import { ModalToggleService } from '../../../controller/modal-toggle.service';
 
 @Component({
     selector: 'app-task-details',
@@ -10,4 +11,6 @@ import { TaskDropdownComponent } from "../../shareables/task-dropdown/task-dropd
 })
 export class TaskDetailsComponent {
 
+    constructor( public modalToggleService: ModalToggleService
+    ) { }
 }
