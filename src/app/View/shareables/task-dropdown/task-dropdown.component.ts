@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
 
 @Component({
   selector: 'app-task-dropdown',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './task-dropdown.component.css'
 })
 export class TaskDropdownComponent {
+  @Input() label:string = ''
 
+  constructor(public dropdownToggleService: DropdownToggleService){}
 }

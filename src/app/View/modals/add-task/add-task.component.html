@@ -68,26 +68,15 @@
             ></textarea>
           </div>
 
-          <div class="col-span-2 ">
-         <app-multi-input-box [label]="'Subtasks'" [buttonName]="'Add Subtask'" [isDeleteSvgShown]="true"/>
-          </div>
-
           <div class="col-span-2">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-white dark:text-white"
-              >Status</label
-            >
-            <div
-            (click)="dropdownToggleService.dropdownToggle('status')"
-              class="bg-transparent cursor-pointer text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
-            >Todo</div>
-
-            @if(dropdownToggleService.isStatusDropdownShown){
-               <app-task-dropdown />
-            }
-           
+            <app-multi-input-box
+              [label]="'Subtasks'"
+              [buttonName]="'Add Subtask'"
+              [isDeleteSvgShown]="true"
+            />
           </div>
+
+          <app-task-dropdown [label]="'Status'"/>
         </div>
 
         <button
