@@ -13,11 +13,11 @@ html, body {
   padding: 0;
 }
 
-body{
+.dark{
     background: #20212c;
 }
 
-.dark {
+/* .dark {
   background: #20212c;
   --color-bg: #20212c;
   --color-scroll: #3e3f4e;
@@ -30,7 +30,7 @@ body{
   --color-addButton: #ffffff;
   --color-ellipsis: #20212c;
   --color-checked: rgba(255, 255, 255, 0.5);
-}
+} */
 
 .light {
   background: #f4f7fd;
