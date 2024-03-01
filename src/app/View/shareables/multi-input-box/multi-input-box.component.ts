@@ -20,7 +20,6 @@ export class MultiInputBoxComponent {
       this.inputBoxes.push(2);
     }
     else{
-      //alert('You can only add 6 input boxes')
       Swal.fire({
          position: 'top-end',
          icon: 'warning',
@@ -30,7 +29,6 @@ export class MultiInputBoxComponent {
          timer: 2000,
        });
     }
-    
   }
 
   deleteInputBox(index: number){
