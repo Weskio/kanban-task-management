@@ -12,6 +12,7 @@ import { SidebarComponent } from "../../components/sidebar/sidebar.component";
 import { ShowSidebarComponent } from "../../components/show-sidebar/show-sidebar.component";
 import { ShowSidebarService } from '../../../controller/show-sidebar.service';
 import { NgClass } from '@angular/common';
+import { TaskCardComponent } from "../../components/task-card/task-card.component";
 
 @Component({
     selector: 'app-home',
@@ -27,7 +28,8 @@ import { NgClass } from '@angular/common';
         NewColumnComponent,
         SidebarComponent,
         ShowSidebarComponent,
-        NgClass
+        NgClass,
+        TaskCardComponent
     ]
 })
 export class HomeComponent {

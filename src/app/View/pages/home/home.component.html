@@ -13,19 +13,18 @@
  <app-sidebar
         [ngClass]="{ invisible: showSidebarService.isSidebarShown }"
       />
-      
-  <div class="main scroll-m-2  overflow-x-auto w-[140vw] flex lg:gap-80">
-    <div class="side-bar">
-     
 
+  <div class="main scroll-m-2 cursor-move  overflow-x-auto w-[140vw] flex lg:gap-80">
+    <div class="side-bar">
       <app-show-sidebar
         (click)="showSidebarService.toggleSidebar()"
         [ngClass]="{ 'invisible ': !showSidebarService.isSidebarShown }"
       />
     </div>
 
-    <div class="columns mt-32 ml-6">
+    <div class="columns flex gap-7 mt-32 ml-3">
       <app-new-column />
+      <app-task-card/>
     </div>
   </div>
 </main>
