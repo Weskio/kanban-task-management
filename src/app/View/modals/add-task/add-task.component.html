@@ -3,18 +3,23 @@
 >
   <div class="relative p-4 w-full ml-auto mr-auto mt-14 max-w-md max-h-full">
     <!-- Modal content -->
-    <div class="relative bg-dark-secondary rounded-lg shadow dark:bg-gray-700">
+    <div
+      class="relative bg-dark-secondary rounded-lg shadow dark:bg-gray-700"
+      [ngClass]="{
+        'bg-dark-secondary  ': themeToggleService.darkTheme,
+        'bg-light-primary transition-colors duration-300 border-light-borderline text-light-text':
+          themeToggleService.lightTheme
+      }"
+    >
       <!-- Modal header -->
       <div
         class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600"
       >
-        <h3 class="text-lg font-semibold text-white dark:text-white">
-          Add New Task
-        </h3>
+        <h3 class="text-lg font-semibold dark:">Add New Task</h3>
         <button
           type="button"
           (click)="modalToggleService.modalToggle('add-task', '')"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:"
           data-modal-toggle="add-modal"
         >
           <svg
@@ -40,16 +45,18 @@
       <form class="p-4 md:p-5">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-white dark:text-white"
+            <label for="name" class="block mb-2 text-sm font-medium dark:"
               >Title</label
             >
             <input
               type="text"
               name="name"
               id="name"
-              class="bg-transparent text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+              class="bg-transparent border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+              [ngClass]="{
+                'border-[#3e3f4e]': themeToggleService.darkTheme,
+                'border-light-borderline': themeToggleService.lightTheme
+              }"
               required=""
               formControlName="title"
             />
@@ -57,13 +64,17 @@
           <div class="col-span-2">
             <label
               for="description"
-              class="block mb-2 text-sm font-medium text-white dark:text-white"
+              class="block mb-2 text-sm font-medium dark:"
               >Description</label
             >
             <textarea
               id="description"
               rows="4"
-              class="bg-transparent text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+              class="bg-transparent border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+              [ngClass]="{
+                'border-[#3e3f4e]': themeToggleService.darkTheme,
+                'border-light-borderline': themeToggleService.lightTheme
+              }"
               formControlName="description"
             ></textarea>
           </div>
@@ -81,7 +92,7 @@
 
         <button
           type="submit"
-          class="text-white bg-[#635FC7] hover:bg-indigo-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="bg-[#635FC7] text-white hover:bg-indigo-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center"
         >
           Create Task
         </button>

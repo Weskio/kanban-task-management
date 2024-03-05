@@ -3,18 +3,24 @@
 >
   <div class="relative p-4 w-full ml-auto mr-auto mt-14 max-w-md max-h-full">
     <!-- Modal content -->
-    <div class="relative bg-dark-secondary rounded-lg shadow dark:bg-gray-700">
+    <div class="relative  rounded-lg shadow"
+    [ngClass]="{
+      'bg-dark-secondary  ': themeToggleService.darkTheme,
+      'bg-light-primary transition-colors duration-300 border-light-borderline text-light-text':
+        themeToggleService.lightTheme
+    }"
+    >
       <!-- Modal header -->
       <div
         class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600"
       >
-        <h3 class="text-lg font-semibold text-white dark:text-white">
+        <h3 class="text-lg font-semibold">
           {{ formTitle }}
         </h3>
         <button
           (click)="modalToggleService.modalToggle('add-column', 'Add Column')"
           type="button"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:"
           data-modal-toggle="add-modal"
         >
           <svg
@@ -42,7 +48,7 @@
           <div class="col-span-2">
             <label
               for="name"
-              class="block mb-2 text-sm font-medium text-white dark:text-white"
+              class="block mb-2 text-sm font-medium  dark:"
               >Name</label
             >
             <input
@@ -52,6 +58,10 @@
               disabled
               value="Platform Launch"
               class="bg-transparent text-gray-500 border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+              [ngClass]="{
+                'border-[#3e3f4e]': themeToggleService.darkTheme,
+                'border-light-borderline': themeToggleService.lightTheme
+              }"
               required=""
               formControlName="title"
             />
@@ -59,7 +69,7 @@
 
           <label
             for="name"
-            class="block text-sm font-medium text-white dark:text-white"
+            class="block text-sm font-medium  dark:"
             >Columns</label
           >
           <div class="col-span-2 flex gap-4">
@@ -69,14 +79,18 @@
                 name="name"
                 id="name"
                 value="Todo"
-                class="bg-transparent text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+                class="bg-transparent  border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+                [ngClass]="{
+                  'border-[#3e3f4e]': themeToggleService.darkTheme,
+                  'border-light-borderline': themeToggleService.lightTheme
+                }"
                 required=""
                 formControlName="title"
               />
             </div>
 
             <svg
-              class="w-8 h-8 mt-2 text-gray-400 dark:text-white"
+              class="w-8 h-8 mt-2 text-gray-400 dark:"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -99,14 +113,18 @@
                 name="name"
                 id="name"
                 value="Doing"
-                class="bg-transparent text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+                class="bg-transparent  border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+                [ngClass]="{
+                  'border-[#3e3f4e]': themeToggleService.darkTheme,
+                  'border-light-borderline': themeToggleService.lightTheme
+                }"
                 required=""
                 formControlName="title"
               />
             </div>
 
             <svg
-              class="w-8 h-8 mt-2 text-gray-400 dark:text-white"
+              class="w-8 h-8 mt-2 text-gray-400 dark:"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -129,14 +147,18 @@
                 name="name"
                 id="name"
                 value="Done"
-                class="bg-transparent text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+                class="bg-transparent  border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+                [ngClass]="{
+                  'border-[#3e3f4e]': themeToggleService.darkTheme,
+                  'border-light-borderline': themeToggleService.lightTheme
+                }"
                 required=""
                 formControlName="title"
               />
             </div>
 
             <svg
-              class="w-8 h-8 mt-2 text-gray-400 dark:text-white"
+              class="w-8 h-8 mt-2 text-gray-400 dark:"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -155,7 +177,13 @@
           <div class="col-span-2">
             <button
               class="text-[#635FC7] bg-white hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
+              [ngClass]="{
+                'bg-white transition-colors duration-300':
+                  themeToggleService.darkTheme,
+                'bg-purple-100 transition-colors duration-300 border-light-borderline':
+                  themeToggleService.lightTheme
+              }"
+              >
               Add New Column
             </button>
           </div>
@@ -163,7 +191,7 @@
 
         <button
           type="submit"
-          class="text-white bg-[#635FC7] hover:bg-indigo-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class=" bg-[#635FC7] text-white hover:bg-indigo-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Save Changes
         </button>

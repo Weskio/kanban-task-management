@@ -8,12 +8,14 @@ module.exports = {
       colors: {
         light: {
           primary: '#ffffff',
+          borderline: '#f4f7fd140',
           secondary:'#007bff' ,
           background: '#f4f7fd',
           text: '#000000',
         },
         dark: {
           primary: '#61dafb',
+          borderline: '#f4f7fd140',
           secondary: '#2b2c37',
           background: '#20212c',
           text: '#ffffff',

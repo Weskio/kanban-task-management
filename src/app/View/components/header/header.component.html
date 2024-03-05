@@ -1,8 +1,10 @@
 <div
   [ngClass]="{
-    'header fixed z-30 w-full p-9 lg:px-8 lg:p-0 flex border-b-[1px] border-b-[#3e3f4e] divide-x-[1.5px] divide-[#3e3f4e]': true,
-    'bg-dark-secondary transition-all duration-200 text-dark-text': themeToggleService.darkTheme,
-    'bg-light-primary transition-all duration-300 text-light-text': themeToggleService.lightTheme
+    'header fixed z-30 w-full p-9 lg:px-8 lg:p-0 flex border-b-[1px]  divide-x-[1.5px]': true,
+    'bg-dark-secondary transition-colors duration-300 border-b-[#3e3f4e] divide-[#3e3f4e] text-dark-text':
+      themeToggleService.darkTheme,
+    'bg-light-primary transition-colors duration-300 border-b-light-borderline divide-light-borderline text-light-text':
+      themeToggleService.lightTheme
   }"
   class=""
 >
@@ -10,14 +12,20 @@
   <img
     src="../../../../assets/logo-light.svg"
     alt=""
-    [ngClass]="{'hidden h-6 mr-0 pr-32 mt-8 mb-5':true, 'lg:block': themeToggleService.darkTheme}"
+    [ngClass]="{
+      'hidden h-6 mr-0 pr-32 mt-8 mb-5': true,
+      'lg:block': themeToggleService.darkTheme
+    }"
   />
 
   <img
     src="../../../../assets/logo-dark.svg"
     alt=""
     class=""
-    [ngClass]="{'hidden h-6 mr-0 pr-32 mt-8 mb-5':true, 'lg:block': themeToggleService.lightTheme}"
+    [ngClass]="{
+      'hidden h-6 mr-0 pr-32 mt-8 mb-5': true,
+      'lg:block': themeToggleService.lightTheme
+    }"
   />
 
   <div class="launch pl-8 flex w-full lg:pt-8 lg:pb-5">

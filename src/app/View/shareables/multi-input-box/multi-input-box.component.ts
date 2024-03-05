@@ -1,14 +1,18 @@
 import { Component, Input } from '@angular/core';
 import Swal from 'sweetalert2';
+import { ThemeToggleService } from '../../../controller/theme-toggle.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-multi-input-box',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './multi-input-box.component.html',
   styleUrl: './multi-input-box.component.css'
 })
 export class MultiInputBoxComponent {
+constructor( public themeToggleService: ThemeToggleService){}
+
   @Input() label:string=''
   @Input() buttonName:string = ''
   @Input() isDeleteSvgShown?:boolean

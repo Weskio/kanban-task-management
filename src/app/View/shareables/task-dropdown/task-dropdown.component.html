@@ -1,31 +1,41 @@
-<div class="col-span-2 mt-4">
+<div class="col-span-2 mt-4"
+[ngClass]="{
+  'bg-dark-secondary transition-colors duration-300 text-dark-text':
+    themeToggleService.darkTheme,
+  'bg-light-primary transition-colors duration-300 border-light-borderline text-light-text':
+    themeToggleService.lightTheme
+}"
+>
   <label
     for="name"
-    class="block mb-2 text-sm font-medium text-white dark:text-white"
-    >{{label}}</label
+    class="block mb-2 text-sm font-medium"
+    >{{ label }}</label
   >
   <div
     (click)="dropdownToggleService.dropdownToggle('status')"
-    class="bg-transparent cursor-pointer text-white border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
-  >
+    class="bg-transparent cursor-pointer border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+    [ngClass]="{'border-[#3e3f4e]': themeToggleService.darkTheme}"
+    >
     Todo
   </div>
 
   @if(dropdownToggleService.isStatusDropdownShown){
   <div class="w-full">
-    <ul class="bg-[#20212c] w-full p-4 rounded-md shadow-lg">
+    <ul class="w-full p-4 rounded-md  shadow-lg"
+    [ngClass]="{'bg-dark-background': themeToggleService.darkTheme}"
+    >
       <li
-        class="text-gray-400 cursor-pointer hover:text-white hover:scale-105 duration-200"
+        class="text-gray-400 cursor-pointer hover: hover:scale-105 duration-300"
       >
         Todo
       </li>
       <li
-        class="text-gray-400 cursor-pointer hover:text-white hover:scale-105 duration-200"
+        class="text-gray-400 cursor-pointer hover: hover:scale-105 duration-300"
       >
         Todo
       </li>
       <li
-        class="text-gray-400 cursor-pointer hover:text-white hover:scale-105 duration-200"
+        class="text-gray-400 cursor-pointer hover:scale-105 duration-300"
       >
         Todo
       </li>

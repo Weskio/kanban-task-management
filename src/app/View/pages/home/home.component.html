@@ -1,9 +1,12 @@
-<main  [ngClass]="{
-  'bg-dark-background transition-all duration-200 w-[140vw] text-dark-text':
-     themeToggleService.darkTheme,
-   'bg-light-background transition-all duration-300 w-[140vw] text-light-text':
-     themeToggleService.lightTheme
- }">
+<main
+  class="w-[140vw] h-[110vh]"
+  [ngClass]="{
+    'bg-dark-background transition-colors duration-300  text-dark-text':
+      themeToggleService.darkTheme,
+    'bg-light-background transition-colors duration-300 text-light-text':
+      themeToggleService.lightTheme
+  }"
+>
   @if(modalToggleService.isAddTaskModalShown){
   <app-add-task />
   } @if(modalToggleService.isAddColumnModalShown){
@@ -12,18 +15,17 @@
   <app-add-board />
   } @if(dropdowntoggleservice.isEditBoardDropdownShown){
   <app-edit-board-dropdown />
+  } @if(modalToggleService.isTaskDetailsShown){
+  <app-task-details />
   }
-  @if(modalToggleService.isTaskDetailsShown){
-    <app-task-details/>
-  }
-
 
   <app-dashboard-frame />
- <app-sidebar
-        [ngClass]="{ invisible: showSidebarService.isSidebarShown }"
-      />
+  <app-sidebar [ngClass]="{ invisible: showSidebarService.isSidebarShown }" />
 
-  <div class="main scroll-m-2 cursor-move  overflow-x-auto w-[140vw]  flex lg:gap-80">
+  <div
+    class="main scroll-m-2 cursor-move overflow-x-auto w-[140vw] flex"
+    [ngClass]="{ 'lg:gap-72': !showSidebarService.isSidebarShown }"
+  >
     <div class="side-bar">
       <app-show-sidebar
         (click)="showSidebarService.toggleSidebar()"
@@ -31,12 +33,9 @@
       />
     </div>
 
-    <div class="columns   flex gap-7 mr-5 mt-32 ml-3">
-      <app-column/>
+    <div class="columns flex gap-7 mr-5 mt-32 ml-12">
+      <app-column />
       <app-new-column />
-      
     </div>
   </div>
 </main>
-
-

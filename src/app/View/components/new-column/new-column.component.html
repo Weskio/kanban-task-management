@@ -1,6 +1,10 @@
 <main
 (click)="modalToggleService.modalToggle('add-column', 'Add Column')"
-  class="h-[80vh] group mb-12 cursor-pointer flex items-center gap-1 justify-center rounded-lg w-72 bg-gradient-to-b from-[#2b2c37] via-[#2b2c37] to-[#20212c]"
+  class="h-[80vh] group mb-12 cursor-pointer flex items-center gap-1 justify-center rounded-lg w-72 bg-gradient-to-b"
+  [ngClass]="{
+    ' from-[#2b2c37] via-[#2b2c37] to-dark-background': themeToggleService.darkTheme,
+    ' from-gray-300 via-gray-300 to-light-background': themeToggleService.lightTheme
+  }"
 >
   <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" class="fill-[#828FA3] group-hover:fill-[#635FC7]">
     <path

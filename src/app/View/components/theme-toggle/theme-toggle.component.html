@@ -1,20 +1,32 @@
-<div class="below-div pb-8 mt-3 lg:mt-0 lg:pb-0 lg:absolute w-[220px] mx-8 bottom-8">
-    <div class="theme-toggle flex gap-6 p-2.5 px-10 rounded-lg  bg-[#20212c] ">
-    <img src="../../../../assets/icon-dark-theme.svg" alt="" class="h-5 mt-1">
+<div
+  class="below-div pb-8 mt-3 lg:mt-0 lg:pb-0 lg:absolute w-[220px] mx-8 bottom-8"
+>
+  <div
+    class="theme-toggle flex gap-6 p-2.5 px-10 rounded-lg"
+    [ngClass]="{
+      'bg-dark-background transition-colors duration-300':
+        themeToggleService.darkTheme,
+      'bg-light-background transition-colors duration-300':
+        themeToggleService.lightTheme
+    }"
+  >
+    <img src="../../../../assets/icon-dark-theme.svg" alt="" class="h-5 mt-1" />
 
     <label class="switch">
-        <input type="checkbox" (click)="themeToggleService.toggleTheme()">
-        <span class="slider"></span>
-      </label>
+      <input type="checkbox" (click)="themeToggleService.toggleTheme()" />
+      <span class="slider"></span>
+    </label>
 
-    <img src="../../../../assets/icon-light-theme.svg" alt="" class="ml-auto h-5 mt-1 ">
-
+    <img
+      src="../../../../assets/icon-light-theme.svg"
+      alt=""
+      class="ml-auto h-5 mt-1"
+    />
   </div>
-<button (click)="hidesidebar.toggleSidebar()">
-   <div class="hidden lg:flex mt-4 ml-3 gap-4 hover:opacity-60 cursor-pointer">
-    <img src="../../../../assets/icon-hide-sidebar.svg" alt="" class="h-4">
-    <p class="text-sm font-bold  -mt-1">Hide Sidebar</p>
-  </div>
-</button>
- 
-  </div>
+  <button (click)="hidesidebar.toggleSidebar()">
+    <div class="hidden lg:flex mt-4 ml-3 gap-4 hover:opacity-60 cursor-pointer">
+      <img src="../../../../assets/icon-hide-sidebar.svg" alt="" class="h-4" />
+      <p class="text-sm font-bold -mt-1">Hide Sidebar</p>
+    </div>
+  </button>
+</div>

@@ -9,18 +9,16 @@
     <div
       class="relative pb-6 rounded-lg shadow dark:bg-gray-700"
       [ngClass]="{
-        'bg-dark-secondary transition-all duration-200 text-dark-text':
-           themeToggleService.darkTheme,
-         'bg-light-primary transition-all duration-300 text-light-text':
-           themeToggleService.lightTheme
-       }"
+        'bg-dark-secondary transition-colors duration-300 text-dark-text':
+          themeToggleService.darkTheme,
+        'bg-light-primary transition-colors duration-300 text-light-text':
+          themeToggleService.lightTheme
+      }"
     >
       <div
         class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600"
       >
-        <h3 class="text-lg font-semibold">
-          Add search endpoints
-        </h3>
+        <h3 class="text-lg font-semibold">Add search endpoints</h3>
 
         <button
           class="add-btn flex items-center border-transparent hover:bg-[#20212c] p-1 lg:rounded-full rounded-xl px-2 hover:opacity-60"
@@ -35,15 +33,23 @@
 
       <p class="text-gray-400 text-[0.8rem] px-5">Description here</p>
 
-      <div class="m px-5 mt-6 ">
+      <div class="m px-5 mt-6">
         <p>Subtasks</p>
 
-        <div class="bg-[#20212c] mt-4 p-2 rounded-lg shadow dark:bg-gray-700">
+        <div
+          class="mt-4 p-2 rounded-lg shadow"
+          [ngClass]="{
+            'bg-dark-background transition-colors duration-300 text-dark-text':
+              themeToggleService.darkTheme,
+            'bg-light-background transition-colors duration-300 text-light-text':
+              themeToggleService.lightTheme
+          }"
+        >
           <div class="checkbox-wrapper-13 flex gap-2">
             <input type="checkbox" id="c1-13" class="peer" />
             <label
               for="checkbox"
-              class="peer-checked:line-through transition-all duration-200 peer-checked:text-gray-400"
+              class="peer-checked:line-through transition-colors duration-300 peer-checked:text-gray-400"
             >
               Define search filters
             </label>

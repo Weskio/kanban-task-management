@@ -1,7 +1,13 @@
-<div class="w-96">
+<div class="w-96" 
+
+>
   <label
     for="name"
-    class="block mb-2 text-sm font-medium text-white dark:text-white"
+    class="block mb-2 text-sm font-medium"
+    [ngClass]="{
+      'text-dark-text': themeToggleService.darkTheme,
+      'text-light-text': themeToggleService.lightTheme
+    }"
     >{{label}}</label
   >
 </div>
@@ -12,7 +18,13 @@
     type="text"
     name="name"
     id="name"
-    class="bg-transparent text-white border-2 border-[#3e3f4e] h-11 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full px-5"
+    class="  border-2  border-[#3e3f4e] h-11 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full px-5"
+    [ngClass]="{
+      'bg-dark-secondary transition-colors duration-300 text-dark-text':
+        themeToggleService.darkTheme,
+      'bg-light-primary transition-colors border-gray-200 duration-300 text-light-text':
+        themeToggleService.lightTheme
+    }"
     required=""
     formControlName="title"
   />
@@ -44,6 +56,12 @@
 <div
   (click)="addInputBox()"
   class="text-[#635FC7] cursor-pointer col-span-2 bg-white hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
->
+  [ngClass]="{
+    'bg-white transition-colors duration-300':
+      themeToggleService.darkTheme,
+    'bg-purple-100 transition-colors duration-300 border-light-borderline':
+      themeToggleService.lightTheme
+  }"
+  >
  {{buttonName}}
 </div>
