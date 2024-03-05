@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShowSidebarService } from '../../../controller/show-sidebar.service';
+import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -10,6 +11,7 @@ import { ShowSidebarService } from '../../../controller/show-sidebar.service';
 })
 export class ThemeToggleComponent {
 
-  constructor(public hidesidebar:ShowSidebarService){}
+  constructor(public hidesidebar:ShowSidebarService, public themeToggleService: ThemeToggleService){}
+
 
 }

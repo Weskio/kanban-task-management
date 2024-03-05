@@ -1,5 +1,12 @@
 <main
-  class=" lg:pt-28 pt-3 top-20 lg:top-0 border border-[#3e3f4e] lg:border-l-0 lg:border-b-0 bg-[#2b2c37] absolute z-40 lg:z-20 lg:rounded-none lg:left-0 rounded-lg left-36 lg:h-full lg:fixed w-[303px] mr-0 text-slate-400 border-r-[#3e3f4e]"
+  class="lg:pt-28 pt-3 top-20 lg:top-0 border border-[#3e3f4e] lg:border-l-0 lg:border-b-0 bg-dark-secondary absolute z-40 lg:z-20 lg:rounded-none lg:left-0 rounded-lg left-36 lg:h-full lg:fixed w-[303px] mr-0 text-slate-400 border-r-[#3e3f4e]"
+  [ngClass]="{
+    'lg:pt-28 pt-3 top-20 lg:top-0 border border-[#3e3f4e] lg:border-l-0 lg:border-b-0 absolute z-40 lg:z-20 lg:rounded-none lg:left-0 rounded-lg left-36 lg:h-full lg:fixed w-[303px] mr-0 text-slate-400 border-r-[#3e3f4e]': true,
+    'bg-dark-secondary transition-all duration-200 text-dark-text':
+      themeToggleService.darkTheme,
+    'bg-light-primary transition-all duration-300 text-light-text':
+      themeToggleService.lightTheme
+  }"
 >
   <p
     class="text-slate-400 pl-7 font-bold uppercase text-[0.75rem] tracking-[0.1rem]"

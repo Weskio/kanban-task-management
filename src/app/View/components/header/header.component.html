@@ -1,15 +1,32 @@
-<div class="header fixed z-30 w-full p-9 bg-[#2b2c37]  lg:px-8 lg:p-0 flex border-b-[1px] border-b-[#3e3f4e] divide-x-[1.5px] divide-[#3e3f4e]">
-    <img src="../../../../assets/logo-mobile.svg" alt="" class="lg:hidden" />
-    <img
-      src="../../../../assets/logo-light.svg"
-      alt=""
-      class="hidden lg:block h-6 mr-0 pr-32 mt-8 mb-5"
-    />
+<div
+  [ngClass]="{
+    'header fixed z-30 w-full p-9 lg:px-8 lg:p-0 flex border-b-[1px] border-b-[#3e3f4e] divide-x-[1.5px] divide-[#3e3f4e]': true,
+    'bg-dark-secondary transition-all duration-200 text-dark-text': themeToggleService.darkTheme,
+    'bg-light-primary transition-all duration-300 text-light-text': themeToggleService.lightTheme
+  }"
+  class=""
+>
+  <img src="../../../../assets/logo-mobile.svg" alt="" class="lg:hidden" />
+  <img
+    src="../../../../assets/logo-light.svg"
+    alt=""
+    [ngClass]="{'hidden h-6 mr-0 pr-32 mt-8 mb-5':true, 'lg:block': themeToggleService.darkTheme}"
+  />
 
-    <div class="launch lg:pl-8 flex w-full lg:pt-8 lg:pb-5">
-        <div class="drop-down ml-5 lg:ml-0 cursor-pointer lg:cursor-text"  (click)="isSmallScreen && showsidebar.toggleSidebar()">
-      <div class="drop-head flex" >
-        <p class="text-white font-bold lg:text-2xl text-xl">Platform Launch</p>
+  <img
+    src="../../../../assets/logo-dark.svg"
+    alt=""
+    class=""
+    [ngClass]="{'hidden h-6 mr-0 pr-32 mt-8 mb-5':true, 'lg:block': themeToggleService.lightTheme}"
+  />
+
+  <div class="launch pl-8 flex w-full lg:pt-8 lg:pb-5">
+    <div
+      class="drop-down ml-5 lg:ml-0 cursor-pointer lg:cursor-text"
+      (click)="isSmallScreen && showsidebar.toggleSidebar()"
+    >
+      <div class="drop-head flex">
+        <p class="font-bold lg:text-2xl text-xl">Platform Launch</p>
         <img
           src="../../../../assets/icon-chevron-down.svg"
           alt=""
@@ -18,10 +35,9 @@
       </div>
     </div>
 
-    
     <div class="left-btn flex ml-auto gap-3 lg:gap-4">
       <button
-      (click)="modalToggleService.modalToggle('add-task', '')"
+        (click)="modalToggleService.modalToggle('add-task', '')"
         class="add-btn flex p-2 lg:py-3 lg:rounded-full rounded-xl px-4 bg-[#635FC7] hover:opacity-60"
       >
         <img
@@ -32,15 +48,16 @@
         <p class="text-white text-sm hidden lg:block font-bold">Add New Task</p>
       </button>
 
-      <button  (click)="dropdowntoggleservice.dropdownToggle('edit-board')" class="add-btn flex items-center border-transparent hover:bg-[#20212c]  p-1 lg:rounded-full rounded-xl px-2 hover:opacity-60">
-         <img
-        src="../../../../assets/icon-vertical-ellipsis.svg"
-        alt=""
-        class="h-4 lg:h-5 cursor-pointer"
-      />
+      <button
+        (click)="dropdowntoggleservice.dropdownToggle('edit-board')"
+        class="add-btn flex items-center border-transparent hover:bg-[#20212c] p-1 lg:rounded-full rounded-xl px-2 hover:opacity-60"
+      >
+        <img
+          src="../../../../assets/icon-vertical-ellipsis.svg"
+          alt=""
+          class="h-4 lg:h-5 cursor-pointer"
+        />
       </button>
-
-     
     </div>
-     </div>
   </div>
+</div>

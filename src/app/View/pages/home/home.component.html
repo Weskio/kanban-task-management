@@ -1,4 +1,9 @@
-<main class="">
+<main  [ngClass]="{
+  'bg-dark-background transition-all duration-200 w-[140vw] text-dark-text':
+     themeToggleService.darkTheme,
+   'bg-light-background transition-all duration-300 w-[140vw] text-light-text':
+     themeToggleService.lightTheme
+ }">
   @if(modalToggleService.isAddTaskModalShown){
   <app-add-task />
   } @if(modalToggleService.isAddColumnModalShown){
@@ -18,7 +23,7 @@
         [ngClass]="{ invisible: showSidebarService.isSidebarShown }"
       />
 
-  <div class="main scroll-m-2 cursor-move  overflow-x-auto w-[140vw] flex lg:gap-80">
+  <div class="main scroll-m-2 cursor-move  overflow-x-auto w-[140vw]  flex lg:gap-80">
     <div class="side-bar">
       <app-show-sidebar
         (click)="showSidebarService.toggleSidebar()"

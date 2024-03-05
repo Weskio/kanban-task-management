@@ -2,17 +2,23 @@ import { Component, HostListener } from '@angular/core';
 import { ShowSidebarService } from '../../../controller/show-sidebar.service';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
 import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
+import { NgClass } from '@angular/common';
+import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-
-  constructor(public showsidebar:ShowSidebarService, public modalToggleService: ModalToggleService, public dropdowntoggleservice: DropdownToggleService) {}
+  constructor(
+    public showsidebar: ShowSidebarService,
+    public modalToggleService: ModalToggleService,
+    public dropdowntoggleservice: DropdownToggleService,
+    public themeToggleService: ThemeToggleService
+  ) {}
   isSmallScreen: boolean = false;
 
   // @HostListener('window:resize', ['$event'])
@@ -31,6 +37,6 @@ export class HeaderComponent {
   }
 
   checkScreenSize() {
-    this.isSmallScreen = window.innerWidth < 1024; 
+    this.isSmallScreen = window.innerWidth < 1024;
   }
 }

@@ -1,13 +1,24 @@
 <div
-(click)="modalToggleService.modalToggle('task-details', '')"
+  (click)="modalToggleService.modalToggle('task-details', '')"
   class="overflow-y-auto h-full fixed backdrop-blur-sm bg-black bg-opacity-20 top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 scroll-bar-hide"
 >
-  <div (click)="$event.stopPropagation()" class="relative p-4 w-full ml-auto mr-auto mt-44 max-w-md max-h-full">
-    <div class="relative pb-6 bg-[#2b2c37] rounded-lg shadow dark:bg-gray-700">
+  <div
+    (click)="$event.stopPropagation()"
+    class="relative p-4 w-full ml-auto mr-auto mt-44 max-w-md max-h-full"
+  >
+    <div
+      class="relative pb-6 rounded-lg shadow dark:bg-gray-700"
+      [ngClass]="{
+        'bg-dark-secondary transition-all duration-200 text-dark-text':
+           themeToggleService.darkTheme,
+         'bg-light-primary transition-all duration-300 text-light-text':
+           themeToggleService.lightTheme
+       }"
+    >
       <div
         class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600"
       >
-        <h3 class="text-lg font-semibold text-white dark:text-white">
+        <h3 class="text-lg font-semibold">
           Add search endpoints
         </h3>
 
@@ -24,14 +35,14 @@
 
       <p class="text-gray-400 text-[0.8rem] px-5">Description here</p>
 
-      <div class="m px-5 mt-6 text-white">
+      <div class="m px-5 mt-6 ">
         <p>Subtasks</p>
 
         <div class="bg-[#20212c] mt-4 p-2 rounded-lg shadow dark:bg-gray-700">
-            
           <div class="checkbox-wrapper-13 flex gap-2">
             <input type="checkbox" id="c1-13" class="peer" />
-            <label for="checkbox"
+            <label
+              for="checkbox"
               class="peer-checked:line-through transition-all duration-200 peer-checked:text-gray-400"
             >
               Define search filters
@@ -39,7 +50,7 @@
           </div>
         </div>
 
-        <app-task-dropdown  [label]="'Current Status'" />
+        <app-task-dropdown [label]="'Current Status'" />
       </div>
     </div>
   </div>

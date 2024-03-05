@@ -15,6 +15,7 @@ import { NgClass } from '@angular/common';
 import { TaskCardComponent } from "../../components/task-card/task-card.component";
 import { ColumnComponent } from "../../components/column/column.component";
 import { TaskDetailsComponent } from "../../modals/task-details/task-details.component";
+import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 
 @Component({
     selector: 'app-home',
@@ -40,6 +41,7 @@ export class HomeComponent {
   constructor(
     public showSidebarService: ShowSidebarService,
     public modalToggleService: ModalToggleService,
-    public dropdowntoggleservice: DropdownToggleService
+    public dropdowntoggleservice: DropdownToggleService,
+    public themeToggleService: ThemeToggleService
   ) {}
 }

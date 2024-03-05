@@ -3,16 +3,16 @@
 >
   <div class="relative p-4 w-full ml-auto mr-auto mt-14 max-w-md max-h-full">
     <!-- Modal content -->
-    <div class="relative bg-[#2b2c37] rounded-lg shadow dark:bg-gray-700">
+    <div class="relative bg-dark-secondary rounded-lg shadow dark:bg-gray-700">
       <!-- Modal header -->
       <div
         class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600"
       >
         <h3 class="text-lg font-semibold text-white dark:text-white">
-          {{formTitle}}
+          {{ formTitle }}
         </h3>
         <button
-        (click)="modalToggleService.modalToggle('add-column', 'Add Column')"
+          (click)="modalToggleService.modalToggle('add-column', 'Add Column')"
           type="button"
           class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
           data-modal-toggle="add-modal"
@@ -58,10 +58,10 @@
           </div>
 
           <label
-                for="name"
-                class="block text-sm font-medium text-white dark:text-white"
-                >Columns</label
-              >
+            for="name"
+            class="block text-sm font-medium text-white dark:text-white"
+            >Columns</label
+          >
           <div class="col-span-2 flex gap-4">
             <div class="w-96">
               <input
@@ -76,7 +76,7 @@
             </div>
 
             <svg
-              class="w-8 h-8  mt-2 text-gray-400 dark:text-white"
+              class="w-8 h-8 mt-2 text-gray-400 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -106,7 +106,7 @@
             </div>
 
             <svg
-              class="w-8 h-8  mt-2 text-gray-400 dark:text-white"
+              class="w-8 h-8 mt-2 text-gray-400 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -159,7 +159,6 @@
               Add New Column
             </button>
           </div>
-
         </div>
 
         <button
