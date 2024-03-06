@@ -45,8 +45,5 @@ export class HomeComponent {
     public themeToggleService: ThemeToggleService
   ) {}
 
-  ngOnInit(){
-    console.log('refreshed')
-    this.themeToggleService.ngOnInit()
-  }
+  
 }
