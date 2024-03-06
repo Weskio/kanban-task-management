@@ -44,4 +44,9 @@ export class HomeComponent {
     public dropdowntoggleservice: DropdownToggleService,
     public themeToggleService: ThemeToggleService
   ) {}
+
+  ngOnInit(){
+    console.log('refreshed')
+    this.themeToggleService.ngOnInit()
+  }
 }
