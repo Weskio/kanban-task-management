@@ -1,5 +1,5 @@
 <main
-  class="lg:pt-28 pt-3 top-20 lg:top-0 border lg:border-l-0 lg:border-b-0 bg-dark-secondary absolute z-40 lg:z-20 lg:rounded-none lg:left-0 rounded-lg left-36 lg:h-full lg:fixed w-[303px] mr-0 text-slate-400"
+  class="lg:pt-28 pt-3 top-20 lg:top-0 border lg:border-l-0 lg:border-b-0 bg-dark-secondary fixed z-40 lg:z-20 lg:rounded-none lg:left-0 rounded-lg left-36 lg:h-full lg:fixed w-[303px] mr-0 text-slate-400"
   [ngClass]="{
     'bg-dark-secondary transition-colors duration-300  border-r-[#3e3f4e] text-dark-text':
       themeToggleService.darkTheme,
@@ -14,9 +14,12 @@
   </p>
 
   <ul class="mt-5">
-    <li>
-      <app-board />
+    @for(board of boards; track boards){
+      <li>
+      <app-board [boardName]="board.name"  />
     </li>
+    }
+    
 
     <li>
       <app-create-new-board />

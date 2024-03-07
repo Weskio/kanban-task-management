@@ -4,6 +4,8 @@ import { BoardComponent } from '../board/board.component';
 import { CreateNewBoardComponent } from '../create-new-board/create-new-board.component';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
+import { DataService } from '../../../controller/data.service';
+import { CurrentBoardService } from '../../../controller/current-board.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,6 +16,10 @@ import { NgClass } from '@angular/common';
 })
 export class SidebarComponent {
   constructor(
-    public themeToggleService: ThemeToggleService
+    public themeToggleService: ThemeToggleService,
+    private dataService: DataService,
+    public currentBoard:CurrentBoardService
   ) {}
+
+  boards :any = this.dataService.getBoards()
 }

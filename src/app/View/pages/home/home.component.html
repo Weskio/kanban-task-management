@@ -34,7 +34,10 @@
     </div>
 
     <div class="columns flex gap-7 mr-5 mt-32 ml-12">
-      <app-column />
+      @for(column of columns; track column){
+        <app-column [columnName]="column.name"/>
+      }
+      
       <app-new-column />
     </div>
   </div>

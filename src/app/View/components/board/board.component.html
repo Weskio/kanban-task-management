@@ -1,5 +1,10 @@
 <div
+
 class="flex gap-4 p-3 mt-2 group cursor-pointer pl-7 w-[280px] hover:bg-[#635FC7] hover:text-white rounded-full rounded-tl-none rounded-bl-none"
+[ngClass]="{
+  'bg-[#635FC7] text-white fill-white': false
+}"
+
 >
 <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
   <path
@@ -9,9 +14,9 @@ class="flex gap-4 p-3 mt-2 group cursor-pointer pl-7 w-[280px] hover:bg-[#635FC7
      1.556 0 0 0 1.334 2.89V7.11h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0
       5.778H11.11v3.11h2a1.556 
     1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z"
-    fill="#828FA3"
-    class="h-4 group-hover:fill-white"
+
+    class="h-4 fill-[#828FA3] group-hover:fill-white"
   />
 </svg>
-<p class="font-bold -mt-[4px]">Platform launch</p>
+<p class="font-bold -mt-[4px]">{{boardName}}</p>
 </div>

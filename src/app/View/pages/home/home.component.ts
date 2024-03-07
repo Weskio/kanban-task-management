@@ -16,6 +16,7 @@ import { TaskCardComponent } from "../../components/task-card/task-card.componen
 import { ColumnComponent } from "../../components/column/column.component";
 import { TaskDetailsComponent } from "../../modals/task-details/task-details.component";
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
+import { Column } from '../../../model/column';
 
 @Component({
     selector: 'app-home',
@@ -42,8 +43,14 @@ export class HomeComponent {
     public showSidebarService: ShowSidebarService,
     public modalToggleService: ModalToggleService,
     public dropdowntoggleservice: DropdownToggleService,
-    public themeToggleService: ThemeToggleService
+    public themeToggleService: ThemeToggleService,
+    private dataService: DataService
   ) {}
 
-  
+   columns: any = this.dataService.getPColumns()
+
+   ngOnInit(){
+    console.log('fuck')
+    console.log(this.columns)
+}
 }
