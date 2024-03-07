@@ -1,5 +1,5 @@
 <main
-  class="w-[140vw] h-[110vh]"
+  class="w-[140vw] h-[160vh]"
   [ngClass]="{
     'bg-dark-background transition-colors duration-300  text-dark-text':
       themeToggleService.darkTheme,
@@ -35,7 +35,7 @@
 
     <div class="columns flex gap-7 mr-5 mt-32 ml-12">
       @for(column of columns; track column){
-        <app-column [columnName]="column.name"/>
+        <app-column [columnName]="column.name" [tasks]="column.tasks"/>
       }
       
       <app-new-column />

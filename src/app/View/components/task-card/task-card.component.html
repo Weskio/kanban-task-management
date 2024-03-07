@@ -1,6 +1,6 @@
 <main
   (click)="modalToggleService.modalToggle('task-details', '')"
-  class="w-72 hover:opacity-45 transition-colors cursor-grab duration-300 flex flex-col py-7 px-6 rounded-lg border shadow-sm"
+  class="w-72 hover:opacity-45 transition-colors cursor-grab duration-300  mb-4 flex flex-col py-7 px-6 rounded-lg border shadow-sm"
   [ngClass]="{
     'bg-dark-secondary transition-colors duration-300 shadow-[#3e3f4e] border-[#3e3f4e] text-dark-text':
       themeToggleService.darkTheme,
@@ -8,6 +8,6 @@
       themeToggleService.lightTheme
   }"
 >
-  <p class="font-bold">Add search endpoints</p>
-  <p class="text-slate-400 mt-2 font-bold text-[0.8rem]">1 of 2 subtasks</p>
+  <p class="font-bold">{{taskName}}</p>
+  <p class="text-slate-400 mt-2 font-bold text-[0.8rem]">{{subTasksDone}} of {{subTasksTotal}} subtasks</p>
 </main>

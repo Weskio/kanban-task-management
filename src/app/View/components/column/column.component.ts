@@ -12,13 +12,12 @@ import { DataService } from '../../../controller/data.service';
 export class ColumnComponent {
 
     @Input() columnName!: string
-
-    constructor(
-        private dataService: DataService
-    ) { }
-
-    columns = this.dataService.getPColumns()
-
+    @Input() tasks: any
+    @Input() taskName!: string
+    
+      getSubtasksDone(task: any): number {
+        return task.subtasks.filter((subtask: any) => subtask.isCompleted === true).length;
+      }
     
 
 }

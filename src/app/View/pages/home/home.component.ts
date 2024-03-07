@@ -50,7 +50,7 @@ export class HomeComponent {
    columns: any = this.dataService.getPColumns()
 
    ngOnInit(){
-    console.log('fuck')
-    console.log(this.columns)
+    //console.log('fuck')
+    //console.log(this.columns)
 }
 }
