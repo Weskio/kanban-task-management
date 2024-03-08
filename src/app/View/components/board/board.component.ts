@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CurrentBoardService } from '../../../controller/current-board.service';
 import { NgClass } from '@angular/common';
+import { DataService } from '../../../controller/data.service';
 
 @Component({
   selector: 'app-board',
@@ -13,7 +14,25 @@ export class BoardComponent {
 
   @Input() boardName!: string
   
+  currentBoardName:string =''
 
-  constructor(public currentBoard: CurrentBoardService) { }
+  constructor(public currentBoard: CurrentBoardService, private dataService: DataService) { }
+
+  ngOnInit() {
+    return this.currentBoard.currentBoardName$.subscribe(name => {
+      this.currentBoardName = name
+    })
+  }
+
+  getCurrentBoardName() {
+    if(this.currentBoardName !== ''){
+      return this.currentBoardName
+    }
+    else{
+      return 
+    }
+  }
+
+
 
 }

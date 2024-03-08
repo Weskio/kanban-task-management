@@ -2,7 +2,7 @@
 
 class="flex gap-4 p-3 mt-2 group cursor-pointer pl-7 w-[280px] hover:bg-[#635FC7] hover:text-white rounded-full rounded-tl-none rounded-bl-none"
 [ngClass]="{
-  'bg-[#635FC7] text-white fill-white': false
+  'bg-[#635FC7] text-white': boardName === currentBoardName
 }"
 
 >
@@ -14,8 +14,10 @@ class="flex gap-4 p-3 mt-2 group cursor-pointer pl-7 w-[280px] hover:bg-[#635FC7
      1.556 0 0 0 1.334 2.89V7.11h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0
       5.778H11.11v3.11h2a1.556 
     1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z"
-
     class="h-4 fill-[#828FA3] group-hover:fill-white"
+    [ngClass]="{
+      ' fill-white': boardName === currentBoardName
+    }"
   />
 </svg>
 <p class="font-bold -mt-[4px]">{{boardName}}</p>

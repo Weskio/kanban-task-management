@@ -455,12 +455,6 @@ export class DataService {
 
   columns: any;
 
-  selectedBoardName: string = '';
-
-  public currentBoardName$ = new BehaviorSubject<string>(
-    this.selectedBoardName
-  );
-
   getBoards() {
     return this.boards;
   }
