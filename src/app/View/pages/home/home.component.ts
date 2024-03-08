@@ -16,7 +16,6 @@ import { TaskCardComponent } from '../../components/task-card/task-card.componen
 import { ColumnComponent } from '../../components/column/column.component';
 import { TaskDetailsComponent } from '../../modals/task-details/task-details.component';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
-import { Column } from '../../../model/column';
 import { CurrentBoardService } from '../../../controller/current-board.service';
 
 @Component({
