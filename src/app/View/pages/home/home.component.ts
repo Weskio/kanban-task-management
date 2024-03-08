@@ -48,7 +48,7 @@ export class HomeComponent {
     public currentBoard: CurrentBoardService
   ) {}
 
-  columns: any
+  columns: any;
 
   ngOnInit() {
     this.dataService.getPColumns().subscribe((data: any) => {
@@ -56,5 +56,3 @@ export class HomeComponent {
     });
   }
 }
-
-
