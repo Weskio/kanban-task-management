@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Board } from '../model/board';
+import { CurrentBoardService } from './current-board.service';
+import { SlicePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -451,36 +453,34 @@ export class DataService {
     },
   ];
 
+  constructor(private currentBoard: CurrentBoardService) {}
+
+  columns: any;
+
+  selectedBoardName: string = '';
+
+  public currentBoardName$ = new BehaviorSubject<string>(
+    this.selectedBoardName
+  );
+
   getBoards() {
     return this.boards;
   }
 
-  getPColumns() {
-    for (let board of this.boards) {
-      if (board.name === 'Platform Launch') {
-        // for(let column of board.columns){
-        //   return column
-        // }
-        return board.columns;
-      }
-    }
-    return [];
-  }
-
-  getPTasks(){
-    for(let board of this.boards){
-      if(board.name === 'Platform Launch'){
-        console.log(board.columns[1])
-        return board.columns
-
-       
-      }
-    }
-    return [];
-  }
-
-  ngOnInit(){
-    this.getPTasks();
-    console.log(this.getPTasks())
+  getPColumns(): Observable<any> {
+    return this.currentBoard.currentBoardName$.pipe(
+      map((boardName) => {
+        const columns =
+          this.boards.find((board) => {
+            if (boardName !== '') {
+              return board.name === boardName;
+            } else {
+              return board.name === this.boards[0].name;
+            }
+          })?.columns || [];
+        this.columns = columns;
+        return columns;
+      })
+    );
   }
 }

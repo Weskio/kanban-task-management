@@ -7,36 +7,37 @@ import { AddBoardComponent } from '../../modals/add-board/add-board.component';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
 import { EditBoardDropdownComponent } from '../../shareables/edit-board-dropdown/edit-board-dropdown.component';
 import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
-import { NewColumnComponent } from "../../components/new-column/new-column.component";
-import { SidebarComponent } from "../../components/sidebar/sidebar.component";
-import { ShowSidebarComponent } from "../../components/show-sidebar/show-sidebar.component";
+import { NewColumnComponent } from '../../components/new-column/new-column.component';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { ShowSidebarComponent } from '../../components/show-sidebar/show-sidebar.component';
 import { ShowSidebarService } from '../../../controller/show-sidebar.service';
 import { NgClass } from '@angular/common';
-import { TaskCardComponent } from "../../components/task-card/task-card.component";
-import { ColumnComponent } from "../../components/column/column.component";
-import { TaskDetailsComponent } from "../../modals/task-details/task-details.component";
+import { TaskCardComponent } from '../../components/task-card/task-card.component';
+import { ColumnComponent } from '../../components/column/column.component';
+import { TaskDetailsComponent } from '../../modals/task-details/task-details.component';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { Column } from '../../../model/column';
+import { CurrentBoardService } from '../../../controller/current-board.service';
 
 @Component({
-    selector: 'app-home',
-    standalone: true,
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.css',
-    imports: [
-        DashboardFrameComponent,
-        AddTaskComponent,
-        AddColumnComponent,
-        AddBoardComponent,
-        EditBoardDropdownComponent,
-        NewColumnComponent,
-        SidebarComponent,
-        ShowSidebarComponent,
-        NgClass,
-        TaskCardComponent,
-        ColumnComponent,
-        TaskDetailsComponent
-    ]
+  selector: 'app-home',
+  standalone: true,
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
+  imports: [
+    DashboardFrameComponent,
+    AddTaskComponent,
+    AddColumnComponent,
+    AddBoardComponent,
+    EditBoardDropdownComponent,
+    NewColumnComponent,
+    SidebarComponent,
+    ShowSidebarComponent,
+    NgClass,
+    TaskCardComponent,
+    ColumnComponent,
+    TaskDetailsComponent,
+  ],
 })
 export class HomeComponent {
   constructor(
@@ -44,13 +45,17 @@ export class HomeComponent {
     public modalToggleService: ModalToggleService,
     public dropdowntoggleservice: DropdownToggleService,
     public themeToggleService: ThemeToggleService,
-    private dataService: DataService
+    private dataService: DataService,
+    public currentBoard: CurrentBoardService
   ) {}
 
-   columns: any = this.dataService.getPColumns()
+  columns: any
 
-   ngOnInit(){
-    //console.log('fuck')
-    //console.log(this.columns)
+  ngOnInit() {
+    this.dataService.getPColumns().subscribe((data: any) => {
+      this.columns = data;
+    });
+  }
 }
-}
+
+

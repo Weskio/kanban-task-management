@@ -22,4 +22,8 @@ export class SidebarComponent {
   ) {}
 
   boards :any = this.dataService.getBoards()
+
+  // ngOnInit(){
+  //   this.dataService.getPColumns()
+  // }
 }

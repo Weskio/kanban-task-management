@@ -15,7 +15,9 @@
 
   <ul class="mt-5">
     @for(board of boards; track boards){
-      <li>
+      <li
+      (click)="currentBoard.currentBoard(board.name)"
+      >
       <app-board [boardName]="board.name"  />
     </li>
     }

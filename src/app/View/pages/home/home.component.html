@@ -23,7 +23,7 @@
   <app-sidebar [ngClass]="{ invisible: showSidebarService.isSidebarShown }" />
 
   <div
-    class="main scroll-m-2 cursor-move overflow-x-auto w-[140vw] flex"
+    class="main cursor-move overflow-x-auto w-[140vw] scrollbar-none flex"
     [ngClass]="{ 'lg:gap-72': !showSidebarService.isSidebarShown }"
   >
     <div class="side-bar">
@@ -33,11 +33,11 @@
       />
     </div>
 
-    <div class="columns flex gap-7 mr-5 mt-32 ml-12">
+    <div class="columns flex gap-7 mr-5 mt-32 ml-10">
       @for(column of columns; track column){
-        <app-column [columnName]="column.name" [tasks]="column.tasks"/>
+      <app-column [columnName]="column.name" [tasks]="column.tasks" />
       }
-      
+
       <app-new-column />
     </div>
   </div>
