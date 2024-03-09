@@ -1,5 +1,5 @@
 <main
-  class="w-[140vw] h-[160vh]"
+  class="w-[115vw] pb-2"
   [ngClass]="{
     'bg-dark-background transition-colors duration-300  text-dark-text':
       themeToggleService.darkTheme,
@@ -23,7 +23,7 @@
   <app-sidebar [ngClass]="{ invisible: showSidebarService.isSidebarShown }" />
 
   <div
-    class="main cursor-move overflow-x-auto w-[140vw] scrollbar-none flex"
+    class="main cursor-move overflow-x-auto w-[115vw] scrollbar-none flex"
     [ngClass]="{ 'lg:gap-72': !showSidebarService.isSidebarShown }"
   >
     <div class="side-bar">
@@ -34,11 +34,14 @@
     </div>
 
     <div class="columns flex gap-7 mr-5 mt-32 ml-10">
-      @for(column of columns; track column){
-      <app-column [columnName]="column.name" [tasks]="column.tasks" />
+      @for(column of columns; track column; let index = $index){
+      <app-column [columnName]="column.name" [tasks]="column.tasks" [columnNumber]="index" [columnTotal]="column.tasks.length" />
       }
-
-      <app-new-column />
+      
+      @if(columns.length < 6){
+        <app-new-column />
+      }
+      
     </div>
   </div>
 </main>

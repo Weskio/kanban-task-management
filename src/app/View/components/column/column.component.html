@@ -1,8 +1,19 @@
 <main>
   <div class="head flex gap-2 mb-4">
-    <div class="circle h-4 w-4 bg-indigo-600 rounded-full"></div>
+    <div
+      class="circle h-4 w-4 bg-indigo-600 rounded-full"
+      [ngClass]="
+     {'bg-[#49C4E5]':columnNumber === 0,
+     'bg-[#8471F2]':columnNumber === 1,
+     'bg-[#67E2AE]':columnNumber === 2,
+     'bg-[#e5a449]':columnNumber === 3,
+     'bg-[#2a3fdb]':columnNumber === 4,
+     'bg-[#c36e6e]':columnNumber === 5,
+    }
+     "
+    ></div>
     <p class="text-gray-400 uppercase font-bold text-[0.8rem] tracking-widest">
-      {{ columnName }}
+      {{ columnName }}({{columnTotal}})
     </p>
   </div>
 
@@ -12,8 +23,7 @@
     [subTasksTotal]="task.subtasks.length"
     [subTasksDone]="getSubtasksDone(task)"
   />
-  }
-  @empty {
-    <app-empty-column />
+  } @empty {
+  <app-empty-column />
   }
 </main>
