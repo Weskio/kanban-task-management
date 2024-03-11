@@ -14,14 +14,17 @@
   </p>
 
   <ul class="mt-5">
-    @for(board of boards; track boards){
-      <li
-      (click)="currentBoard.currentBoard(board.name)"
-      >
-      <app-board [boardName]="board.name"  />
+    @for(board of boards; track boards; let index = $index){
+    <li (click)="currentBoard.currentBoard(board.name)">
+      @switch (index) {
+         @case (0) {
+      <app-board [boardName]="board.name" [firstBoardColor]="getFirstBoardColor()" />
+      }
+       @default {
+      <app-board [boardName]="board.name" />
+      } }
     </li>
     }
-    
 
     <li>
       <app-create-new-board />

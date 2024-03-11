@@ -8,31 +8,30 @@ import { DataService } from '../../../controller/data.service';
   standalone: true,
   imports: [NgClass],
   templateUrl: './board.component.html',
-  styleUrl: './board.component.css'
+  styleUrl: './board.component.css',
 })
 export class BoardComponent {
+  @Input() boardName!: string;
+  @Input() firstBoardColor!: boolean;
 
-  @Input() boardName!: string
-  
-  currentBoardName:string =''
+  currentBoardName: string = '';
 
-  constructor(public currentBoard: CurrentBoardService, private dataService: DataService) { }
+  constructor(
+    public currentBoard: CurrentBoardService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
-    return this.currentBoard.currentBoardName$.subscribe(name => {
-      this.currentBoardName = name
-    })
+    return this.currentBoard.currentBoardName$.subscribe((name) => {
+      this.currentBoardName = name;
+    });
   }
 
   getCurrentBoardName() {
-    if(this.currentBoardName !== ''){
-      return this.currentBoardName
-    }
-    else{
-      return 
+    if (this.currentBoardName !== '') {
+      return this.currentBoardName;
+    } else {
+      return;
     }
   }
-
-
-
 }

@@ -23,7 +23,12 @@ export class SidebarComponent {
 
   boards :any = this.dataService.getBoards()
 
-  // ngOnInit(){
-  //   this.dataService.getPColumns()
-  // }
+  getFirstBoardColor(): boolean {
+    let isFirstBoard = false;
+    this.currentBoard.currentBoardName$.subscribe(currentBoardName => {
+      isFirstBoard = currentBoardName === '';
+    });
+    return isFirstBoard;
+  }
+  
 }
