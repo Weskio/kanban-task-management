@@ -4,6 +4,8 @@ import { ModalToggleService } from '../../../controller/modal-toggle.service';
 import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
 import { NgClass } from '@angular/common';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
+import { CurrentBoardService } from '../../../controller/current-board.service';
+import { DataService } from '../../../controller/data.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,9 @@ export class HeaderComponent {
     public showsidebar: ShowSidebarService,
     public modalToggleService: ModalToggleService,
     public dropdowntoggleservice: DropdownToggleService,
-    public themeToggleService: ThemeToggleService
+    public themeToggleService: ThemeToggleService,
+    private currentBoard: CurrentBoardService,
+    private dataService: DataService
   ) {}
   isSmallScreen: boolean = false;
 
@@ -26,8 +30,14 @@ export class HeaderComponent {
   //   this.showsidebar.setInitialVisibility();
   // }
 
+  initialBoardName = this.dataService.getBoards()[0].name
+
   ngOnInit(): void {
     this.checkScreenSize();
+  }
+
+  getBoardName() {
+    return this.currentBoard.currentBoardName$.value
   }
 
   @HostListener('window:resize', ['$event'])

@@ -34,7 +34,13 @@
       (click)="isSmallScreen && showsidebar.toggleSidebar()"
     >
       <div class="drop-head flex">
-        <p class="font-bold lg:text-2xl text-xl">Platform Launch</p>
+        @if(!getBoardName()){
+          <p class="font-bold lg:text-2xl text-xl">{{initialBoardName}}</p>
+        }
+        @else {
+          <p class="font-bold lg:text-2xl text-xl">{{getBoardName()}}</p>
+        }
+        
         <img
           src="../../../../assets/icon-chevron-down.svg"
           alt=""
