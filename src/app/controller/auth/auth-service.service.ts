@@ -95,18 +95,18 @@ export class AuthService {
         email,
         password
       );
-      if (userCredential.user) {
-        this.setUserId(userCredential.user.uid);
-        Swal.fire({
-          title: 'Welcome!',
-          text: 'You have been logged in successfully!',
-          icon: 'success',
-          position: 'top-end',
-          timer: 3000,
-          showConfirmButton: false,
-        });
-        this.router.navigate(['link/list']);
-      }
+      // if (userCredential.user) {
+      //   this.setUserId(userCredential.user.uid);
+      //   Swal.fire({
+      //     title: 'Welcome!',
+      //     text: 'You have been logged in successfully!',
+      //     icon: 'success',
+      //     position: 'top-end',
+      //     timer: 3000,
+      //     showConfirmButton: false,
+      //   });
+      //   this.router.navigate(['link/list']);
+      // }
     } catch (error: any) {
       Swal.fire({
         title: 'Error!',
