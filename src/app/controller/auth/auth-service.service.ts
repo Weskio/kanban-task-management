@@ -46,7 +46,7 @@ export class AuthService {
   getCurrentUser() {
     return this.auth.currentUser;
   }
-  async signUp(email: string, password: string, name: string): Promise<void> {
+  async signUp(email: string, password: string): Promise<void> {
     const auth = getAuth();
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -54,29 +54,29 @@ export class AuthService {
         email,
         password
       );
-      if (userCredential.user) {
-        await updateProfile(userCredential.user, { displayName: name });
-        this.setUserId(userCredential.user.uid);
-        const userData = {
-          displayName: name,
-          email: email,
-        };
-        const userDocRef: DocumentReference<DocumentData> = doc(
-          this.db,
-          'users',
-          userCredential.user.uid
-        );
-        await setDoc(userDocRef, userData);
-        Swal.fire({
-          title: 'Account Created!',
-          text: 'Your account has been created successfully!',
-          icon: 'success',
-          position: 'top-end',
-          timer: 3000,
-          showConfirmButton: false,
-        });
-        this.router.navigate(['link/list']);
-      }
+      // if (userCredential.user) {
+      //   await updateProfile(userCredential.user, { displayName: name });
+      //   this.setUserId(userCredential.user.uid);
+      //   const userData = {
+      //     displayName: name,
+      //     email: email,
+      //   };
+      //   const userDocRef: DocumentReference<DocumentData> = doc(
+      //     this.db,
+      //     'users',
+      //     userCredential.user.uid
+      //   );
+      //   await setDoc(userDocRef, userData);
+      //   Swal.fire({
+      //     title: 'Account Created!',
+      //     text: 'Your account has been created successfully!',
+      //     icon: 'success',
+      //     position: 'top-end',
+      //     timer: 3000,
+      //     showConfirmButton: false,
+      //   });
+      //  // this.router.navigate(['link/list']);
+      // }
     } catch (error: any) {
       Swal.fire({
         title: 'Error!',
