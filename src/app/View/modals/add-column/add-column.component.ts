@@ -4,6 +4,7 @@ import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
 import { CurrentBoardService } from '../../../controller/current-board.service';
 import { DataService } from '../../../controller/data.service';
+import { CrudService } from '../../../controller/crud.service';
 
 @Component({
   selector: 'app-add-column',
@@ -22,7 +23,8 @@ export class AddColumnComponent {
     public modalToggleService: ModalToggleService,
     public themeToggleService: ThemeToggleService,
     public currentBoard: CurrentBoardService, 
-    private dataService: DataService
+    private dataService: DataService, 
+    public crudService: CrudService
     ) { }
 
     initialBoardName = this.dataService.getBoards()[0].name
