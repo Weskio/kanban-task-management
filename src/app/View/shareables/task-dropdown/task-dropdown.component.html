@@ -16,7 +16,7 @@
     class="bg-transparent cursor-pointer border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
     [ngClass]="{'border-[#3e3f4e]': themeToggleService.darkTheme}"
     >
-    Todo
+    {{columns[0].name}}
   </div>
 
   @if(dropdownToggleService.isStatusDropdownShown){
@@ -24,21 +24,14 @@
     <ul class="w-full p-4 rounded-md  shadow-lg"
     [ngClass]="{'bg-dark-background': themeToggleService.darkTheme}"
     >
-      <li
-        class="text-gray-400 cursor-pointer hover: hover:scale-105 duration-300"
-      >
-        Todo
-      </li>
-      <li
-        class="text-gray-400 cursor-pointer hover: hover:scale-105 duration-300"
-      >
-        Todo
-      </li>
+    @for(column of columns; track columns){
       <li
         class="text-gray-400 cursor-pointer hover:scale-105 duration-300"
       >
-        Todo
+        {{column.name}}
       </li>
+    }
+      
     </ul>
   </div>
   }
