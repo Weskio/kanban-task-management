@@ -55,4 +55,5 @@ export class HomeComponent {
       this.columns = data;
     });
   }
+
 }

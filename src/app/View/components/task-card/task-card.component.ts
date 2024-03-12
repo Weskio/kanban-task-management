@@ -17,6 +17,9 @@ export class TaskCardComponent {
     @Input() taskName!:string
     @Input() subTasksTotal!:number
     @Input() subTasksDone!:number
+    @Input() subTasks!:[]
+    @Input() taskDesc!:string
+    @Input() subtaskName!:string[]
 
 
 }

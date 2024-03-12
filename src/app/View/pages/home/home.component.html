@@ -16,7 +16,12 @@
   } @if(dropdowntoggleservice.isEditBoardDropdownShown){
   <app-edit-board-dropdown />
   } @if(modalToggleService.isTaskDetailsShown){
-  <app-task-details [taskName]="modalToggleService.taskName" />
+  <app-task-details
+    [taskName]="modalToggleService.taskName"
+    [taskDesc]="modalToggleService.taskDesc"
+    [subTasks]="modalToggleService.subTasks"
+    [subtaskName]="modalToggleService.subTaskName"
+  />
   }
 
   <app-dashboard-frame />
@@ -35,13 +40,15 @@
 
     <div class="columns flex gap-7 mr-5 mt-32 ml-10">
       @for(column of columns; track column; let index = $index){
-      <app-column [columnName]="column.name" [tasks]="column.tasks" [columnNumber]="index" [columnTotal]="column.tasks.length" />
+      <app-column
+        [columnName]="column.name"
+        [tasks]="column.tasks"
+        [columnNumber]="index"
+        [columnTotal]="column.tasks.length"
+      />
+      } @if(columns.length < 6){
+      <app-new-column />
       }
-      
-      @if(columns.length < 6){
-        <app-new-column />
-      }
-      
     </div>
   </div>
 </main>

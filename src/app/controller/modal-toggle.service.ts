@@ -10,6 +10,9 @@ export class ModalToggleService {
   isTaskDetailsShown: boolean = false;
   formTitle: string = '';
   taskName: string =''
+  taskDesc: string = ''
+  subTasks!:[]
+  subTaskName!: string[]
 
   constructor() {}
 
@@ -26,5 +29,12 @@ export class ModalToggleService {
       this.isTaskDetailsShown = !this.isTaskDetailsShown;
       this.taskName = taskName
     }
+  }
+
+  taskDetails(taskName:string, subtasks: [], taskDesc:string, subTaskName: any){
+    this.subTaskName = subTaskName
+    this.taskName = taskName
+    this.subTasks = subtasks
+    this.taskDesc = taskDesc
   }
 }

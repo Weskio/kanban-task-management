@@ -26,6 +26,10 @@ export class ColumnComponent {
       getSubtasksDone(task: any): number {
         return task.subtasks.filter((subtask: any) => subtask.isCompleted === true).length;
       }
+
+      getSubTasksName(task: any): string[] {
+        return task.subtasks.map((subtask: any) => subtask.title);
+    }
     
 
 }

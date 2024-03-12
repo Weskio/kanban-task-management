@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
-import { CurrentColumnsTaskService } from './current-columns-task.service';
 
 @Injectable({
   providedIn: 'root',
@@ -452,7 +451,7 @@ export class DataService {
     },
   ];
 
-  constructor(private currentBoard: CurrentBoardService, private currentColumnTaskService: CurrentColumnsTaskService) {}
+  constructor(private currentBoard: CurrentBoardService) {}
 
   columns: any;
 

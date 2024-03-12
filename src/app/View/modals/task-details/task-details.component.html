@@ -31,7 +31,13 @@
         </button>
       </div>
 
-      <p class="text-gray-400 text-[0.8rem] px-5">Description here</p>
+      @if(taskDesc){
+         <p class="text-gray-400 text-[0.8rem] px-5">{{taskDesc}}</p>
+      }
+      @else {
+        <p class="text-gray-400 text-[0.8rem] px-5">No description provided</p>
+      }
+      
 
       <div class="m px-5 mt-6">
         <p>Subtasks</p>
@@ -45,15 +51,23 @@
               themeToggleService.lightTheme
           }"
         >
-          <div class="checkbox-wrapper-13 flex gap-2">
+        @for(item of subtaskName; track subtaskName){
+           <div class="checkbox-wrapper-13 flex gap-2 mb-1.5">
+           
             <input type="checkbox" id="c1-13" class="peer" />
             <label
               for="checkbox"
               class="peer-checked:line-through transition-colors duration-300 peer-checked:text-gray-400"
             >
-              Define search filters
+           
+              {{item}}
+            
+             
             </label>
+          
           </div>
+        }
+         
         </div>
 
         <app-task-dropdown [label]="'Current Status'" />
