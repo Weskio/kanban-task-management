@@ -7,6 +7,9 @@ import { CurrentBoardService } from './current-board.service';
   providedIn: 'root',
 })
 export class DataService {
+ localBoards: Board[] = [];
+ customBoards: Board[] = [];
+ myBoards: Board[] = [];
   'boards': Board[] = [
     {
       name: 'Platform Launch',
@@ -450,6 +453,15 @@ export class DataService {
       ],
     },
   ];
+
+  ngOnInit() {
+    const storedBoards = localStorage.getItem('boards');
+    if (storedBoards) {
+      this.myBoards = JSON.parse(storedBoards);
+      console.log(this.myBoards);
+    }
+  }
+  
 
   constructor(private currentBoard: CurrentBoardService) {}
 

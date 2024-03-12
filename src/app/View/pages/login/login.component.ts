@@ -21,9 +21,7 @@ export class LoginComponent {
   });
 
   onSubmit() {
-    //const userDetails = this.signUpForm.value;
     const userEmail = this.signInForm.get('email')!.value;
-    //const userName = this.signUpForm.get('name')?.value;
     const userPassword = this.signInForm.get('password')?.value;
 
     console.log(userEmail, userPassword);
@@ -33,8 +31,6 @@ export class LoginComponent {
     }).catch((error) => {
       console.log(error);
     });
-    // console.log(userName);
-    // this.router.navigate(['/login']);
   }
 
 }

@@ -53,6 +53,8 @@ export class HomeComponent {
   ngOnInit() {
     this.dataService.getPColumns().subscribe((data: any) => {
       this.columns = data;
+      this.dataService.ngOnInit()
+      //console.log(this.dataService.myBoards)
     });
   }
 

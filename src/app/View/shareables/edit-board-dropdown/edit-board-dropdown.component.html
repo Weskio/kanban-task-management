@@ -1,4 +1,4 @@
-<main  class="fixed right-8 z-40 mt-[85px]">
+<main  (click)="$event.stopPropagation()" class="fixed right-8 z-40 mt-[85px]">
     <ul class=" w-48 p-4 rounded-md shadow-lg "
     [ngClass]="{'bg-dark-background': themeToggleService.darkTheme, 'bg-white': themeToggleService.lightTheme}"
     >

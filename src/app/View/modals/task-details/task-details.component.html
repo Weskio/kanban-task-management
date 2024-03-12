@@ -41,7 +41,7 @@
 
       <div class="m px-5 mt-6">
         <p>Subtasks</p>
-
+        @for(item of subtaskName; track subtaskName){
         <div
           class="mt-4 p-2 rounded-lg shadow"
           [ngClass]="{
@@ -51,8 +51,8 @@
               themeToggleService.lightTheme
           }"
         >
-        @for(item of subtaskName; track subtaskName){
-           <div class="checkbox-wrapper-13 flex gap-2 mb-1.5">
+       
+           <div class="checkbox-wrapper-13 flex gap-2">
            
             <input type="checkbox" id="c1-13" class="peer" />
             <label
@@ -66,9 +66,11 @@
             </label>
           
           </div>
-        }
+        
          
         </div>
+
+      }
 
         <app-task-dropdown [label]="'Current Status'" />
       </div>
