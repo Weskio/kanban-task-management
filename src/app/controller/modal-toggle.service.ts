@@ -9,10 +9,11 @@ export class ModalToggleService {
   isAddBoardShown: boolean = false;
   isTaskDetailsShown: boolean = false;
   formTitle: string = '';
+  taskName: string =''
 
   constructor() {}
 
-  modalToggle(modalType: string, formTitle: string) {
+  modalToggle(modalType: string, formTitle: string, taskName: string) {
     this.formTitle = formTitle;
     if (modalType === 'add-task') {
       this.isAddTaskModalShown = !this.isAddTaskModalShown;
@@ -23,6 +24,7 @@ export class ModalToggleService {
       this.isAddBoardShown = !this.isAddBoardShown;
     } else if (modalType === 'task-details') {
       this.isTaskDetailsShown = !this.isTaskDetailsShown;
+      this.taskName = taskName
     }
   }
 }

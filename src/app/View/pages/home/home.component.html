@@ -16,7 +16,7 @@
   } @if(dropdowntoggleservice.isEditBoardDropdownShown){
   <app-edit-board-dropdown />
   } @if(modalToggleService.isTaskDetailsShown){
-  <app-task-details />
+  <app-task-details [taskName]="modalToggleService.taskName" />
   }
 
   <app-dashboard-frame />

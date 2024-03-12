@@ -4,6 +4,7 @@ import { DataService } from '../../../controller/data.service';
 import { CurrentBoardService } from '../../../controller/current-board.service';
 import { EmptyColumnComponent } from "../empty-column/empty-column.component";
 import { NgClass } from '@angular/common';
+import { ModalToggleService } from '../../../controller/modal-toggle.service';
 
 @Component({
     selector: 'app-column',
@@ -20,7 +21,7 @@ export class ColumnComponent {
     @Input() columnNumber!: number
     @Input() columnTotal!:number;
 
-    constructor(public dataService: DataService, private currentBoard: CurrentBoardService) {}
+    constructor(public dataService: DataService, public modalToggleService: ModalToggleService) {}
     
       getSubtasksDone(task: any): number {
         return task.subtasks.filter((subtask: any) => subtask.isCompleted === true).length;

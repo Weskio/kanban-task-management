@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TaskDropdownComponent } from "../../shareables/task-dropdown/task-dropdown.component";
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
@@ -15,4 +15,8 @@ export class TaskDetailsComponent {
 
     constructor( public modalToggleService: ModalToggleService,  public themeToggleService: ThemeToggleService
     ) { }
+
+    @Input() taskName!:string
+    @Input() subTasksTotal!:number
+    @Input() subTasksDone!:number
 }

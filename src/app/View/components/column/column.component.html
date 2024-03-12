@@ -18,11 +18,14 @@
   </div>
 
   @for(task of tasks; track task){
-  <app-task-card
+    <div (click)="modalToggleService.modalToggle('task-details', '', task.title)">
+      <app-task-card
     [taskName]="task.title"
     [subTasksTotal]="task.subtasks.length"
     [subTasksDone]="getSubtasksDone(task)"
   />
+    </div>
+  
   } @empty {
   <app-empty-column />
   }
