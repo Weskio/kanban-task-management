@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,5 @@ export class CurrentBoardService {
 
   currentBoard(board: string) {
     this.currentBoardName$.next(board);
-    //console.log(this.currentBoardName$.value);
   }
 }

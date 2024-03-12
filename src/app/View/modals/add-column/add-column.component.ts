@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
+import { CurrentBoardService } from '../../../controller/current-board.service';
+import { DataService } from '../../../controller/data.service';
 
 @Component({
   selector: 'app-add-column',
@@ -13,10 +15,25 @@ import { NgClass } from '@angular/common';
 export class AddColumnComponent {
 
   @Input() formTitle: string =''
+  @Input() columnName!: string
+  columns: any
 
   constructor(
     public modalToggleService: ModalToggleService,
-    public themeToggleService: ThemeToggleService
+    public themeToggleService: ThemeToggleService,
+    public currentBoard: CurrentBoardService, 
+    private dataService: DataService
     ) { }
+
+    initialBoardName = this.dataService.getBoards()[0].name
+    getBoardName() {
+      return this.currentBoard.currentBoardName$.value
+    }
+
+    ngOnInit() {
+      this.dataService.getPColumns().subscribe((data: any) => {
+        this.columns = data;
+      });
+    }
 
 }
