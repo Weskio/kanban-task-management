@@ -35,10 +35,8 @@ export class HeaderComponent {
   initialBoardName = ''
 
   ngOnInit(){
-   // this.checkScreenSize();
    this.dataService.ngOnInit();
    this.initialBoardName = this.dataService.getBoards()[0].name
-  // this.crudeService.ngOnInit();
   }
 
   getBoardName() {

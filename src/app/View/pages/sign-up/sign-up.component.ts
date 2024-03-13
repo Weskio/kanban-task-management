@@ -36,11 +36,11 @@ export class SignUpComponent {
 
     console.log(userEmail, userPassword, userName);
 
-    this.authService.signUp(userEmail!, userPassword!).then(() => {
-      this.router.navigate(['/login']);
-    }).catch((error) => {
-      console.log(error);
-    });
+    // this.authService.signUp(userEmail!, userPassword!).then(() => {
+    //   this.router.navigate(['/login']);
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
     // console.log(userName);
     // this.router.navigate(['/login']);
   }

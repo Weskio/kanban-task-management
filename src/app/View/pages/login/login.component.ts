@@ -26,11 +26,11 @@ export class LoginComponent {
 
     console.log(userEmail, userPassword);
 
-    this.authService.login(userEmail!, userPassword!).then(() => {
-      this.router.navigate(['']);
-    }).catch((error) => {
-      console.log(error);
-    });
+    // this.authService.login(userEmail!, userPassword!).then(() => {
+    //   this.router.navigate(['']);
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
   }
 
 }

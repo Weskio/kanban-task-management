@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
+import { Column } from '../model/column';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class DataService {
   localBoards: Board[] = [];
   customBoards: Board[] = [];
   myBoards: Board[] = [];
+  customColumns: Column[] = [];
   'boards': Board[] = [
     {
       name: 'Platform Launch',
@@ -461,7 +463,7 @@ export class DataService {
     } else {
       this.myBoards = this.boards;
       localStorage.setItem('boards', JSON.stringify(this.myBoards));
-      this.getBoards();
+      //this.getBoards();
     }
   }
 
@@ -488,5 +490,16 @@ export class DataService {
         return columns;
       })
     );
+  }
+
+  addColumn(name: string, boardName: string) {
+    for(let board of this.myBoards) {
+      if(board.name === boardName) {
+        board.columns.push({name: name, tasks: []});
+        localStorage.setItem('boards', JSON.stringify(this.myBoards));
+    this.getBoards();
+      }
+    }
+   // this.myBoards.columns.push({name: name, tasks: []});
   }
 }
