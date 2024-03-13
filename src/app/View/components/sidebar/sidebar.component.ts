@@ -6,6 +6,7 @@ import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
 import { DataService } from '../../../controller/data.service';
 import { CurrentBoardService } from '../../../controller/current-board.service';
+import { Board } from '../../../model/board';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,7 +22,7 @@ export class SidebarComponent {
     public currentBoard:CurrentBoardService
   ) {}
 
-  boards :any = this.dataService.getBoards()
+  boards :Board[] = []
 
   getFirstBoardColor(): boolean {
     let isFirstBoard = false;
@@ -29,6 +30,11 @@ export class SidebarComponent {
       isFirstBoard = currentBoardName === '';
     });
     return isFirstBoard;
+  }
+
+  ngOnInit(){
+    this.dataService.ngOnInit();
+    this.boards = this.dataService.getBoards();
   }
   
 }

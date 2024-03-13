@@ -6,6 +6,7 @@ import { NgClass } from '@angular/common';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { CurrentBoardService } from '../../../controller/current-board.service';
 import { DataService } from '../../../controller/data.service';
+import { CrudService } from '../../../controller/crud.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ export class HeaderComponent {
     public dropdowntoggleservice: DropdownToggleService,
     public themeToggleService: ThemeToggleService,
     private currentBoard: CurrentBoardService,
-    private dataService: DataService
+    private dataService: DataService, 
+    private crudeService: CrudService
   ) {}
   isSmallScreen: boolean = false;
 
@@ -30,23 +32,26 @@ export class HeaderComponent {
   //   this.showsidebar.setInitialVisibility();
   // }
 
-  initialBoardName = this.dataService.getBoards()[0].name
+  initialBoardName = ''
 
-  ngOnInit(): void {
-    this.checkScreenSize();
+  ngOnInit(){
+   // this.checkScreenSize();
+   this.dataService.ngOnInit();
+   this.initialBoardName = this.dataService.getBoards()[0].name
+  // this.crudeService.ngOnInit();
   }
 
   getBoardName() {
     return this.currentBoard.currentBoardName$.value
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.checkScreenSize();
-    this.showsidebar.setInitialVisibility();
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event: any) {
+  //   this.checkScreenSize();
+  //   this.showsidebar.setInitialVisibility();
+  // }
 
-  checkScreenSize() {
-    this.isSmallScreen = window.innerWidth < 1024;
-  }
+  // checkScreenSize() {
+  //   this.isSmallScreen = window.innerWidth < 1024;
+  // }
 }

@@ -51,10 +51,12 @@ export class HomeComponent {
   columns: any;
 
   ngOnInit() {
+    this.dataService.ngOnInit()
+    console.log(this.dataService.myBoards)
     this.dataService.getPColumns().subscribe((data: any) => {
       this.columns = data;
-      this.dataService.ngOnInit()
-      //console.log(this.dataService.myBoards)
+    
+      console.log(this.dataService.myBoards)
     });
   }
 

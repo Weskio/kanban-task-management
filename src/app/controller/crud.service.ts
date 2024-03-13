@@ -12,12 +12,15 @@ export class CrudService {
 
   constructor(private dataService: DataService, private currentBoard: CurrentBoardService) { }
 
-  initialBoardName = this.dataService.getBoards()[0].name
+  // 
+
+  initialBoardName = ''
   getBoardName() {
     return this.currentBoard.currentBoardName$.value
   }
   
   ngOnInit() {
+    this.initialBoardName = this.dataService.getBoards()[0].name
     this.dataService.getPColumns().subscribe((data: any) => {
       this.columns = data;
     });

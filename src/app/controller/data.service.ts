@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
 
@@ -7,9 +7,9 @@ import { CurrentBoardService } from './current-board.service';
   providedIn: 'root',
 })
 export class DataService {
- localBoards: Board[] = [];
- customBoards: Board[] = [];
- myBoards: Board[] = [];
+  localBoards: Board[] = [];
+  customBoards: Board[] = [];
+  myBoards: Board[] = [];
   'boards': Board[] = [
     {
       name: 'Platform Launch',
@@ -455,31 +455,33 @@ export class DataService {
   ];
 
   ngOnInit() {
-    const storedBoards = localStorage.getItem('boards');
+    let storedBoards = localStorage.getItem('boards');
     if (storedBoards) {
       this.myBoards = JSON.parse(storedBoards);
-      console.log(this.myBoards);
+    } else {
+      this.myBoards = this.boards;
+      localStorage.setItem('boards', JSON.stringify(this.myBoards));
+      this.getBoards();
     }
   }
-  
 
   constructor(private currentBoard: CurrentBoardService) {}
 
   columns: any;
 
   getBoards() {
-    return this.boards;
+    return this.myBoards;
   }
 
   getPColumns(): Observable<any> {
     return this.currentBoard.currentBoardName$.pipe(
       map((boardName) => {
         const columns =
-          this.boards.find((board) => {
+          this.myBoards.find((board) => {
             if (boardName !== '') {
               return board.name === boardName;
             } else {
-              return board.name === this.boards[0].name;
+              return board.name === this.myBoards[0].name;
             }
           })?.columns || [];
         this.columns = columns;

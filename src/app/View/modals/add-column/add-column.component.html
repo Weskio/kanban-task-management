@@ -35,7 +35,7 @@
               name="name"
               id="name"
               disabled
-              [value]="getBoardName() || initialBoardName"
+              [value]="crudService.getBoardName() || crudService.initialBoardName"
               class="bg-transparent text-gray-500 border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
               [ngClass]="{
                 'border-[#3e3f4e]': themeToggleService.darkTheme,
@@ -50,7 +50,7 @@
             >Columns</label
           >
 
-          @for(column of columns; track columns){
+          @for(column of crudService.columns; track column){
           <div class="col-span-2 flex gap-4">
             <div class="w-96">
               <input
