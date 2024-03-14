@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
-import { CurrentBoardService } from '../../../controller/current-board.service';
 import { CrudService } from '../../../controller/crud.service';
 import {
   FormArray,

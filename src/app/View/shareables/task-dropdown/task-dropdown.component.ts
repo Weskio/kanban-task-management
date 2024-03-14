@@ -3,6 +3,7 @@ import { DropdownToggleService } from '../../../controller/dropdown-toggle.servi
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
 import { DataService } from '../../../controller/data.service';
+import { CrudService } from '../../../controller/crud.service';
 
 @Component({
   selector: 'app-task-dropdown',
@@ -18,7 +19,8 @@ export class TaskDropdownComponent {
   constructor(
     public dropdownToggleService: DropdownToggleService,
     public themeToggleService: ThemeToggleService, 
-    public dataService: DataService
+    public dataService: DataService, 
+    public crudService: CrudService
   ) {}
 
   ngOnInit() {

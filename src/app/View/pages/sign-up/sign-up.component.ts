@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../controller/auth/auth-service.service';
+//import { AuthService } from '../../../controller/auth/auth-service.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,7 +18,7 @@ import { AuthService } from '../../../controller/auth/auth-service.service';
 export class SignUpComponent {
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    //private authService: AuthService,
     private router: Router
   ) {}
 

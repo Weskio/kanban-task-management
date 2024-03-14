@@ -3,6 +3,7 @@ import { Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
 import { Column } from '../model/column';
+import { Task } from '../model/task';
 
 @Injectable({
   providedIn: 'root',
@@ -500,6 +501,25 @@ export class DataService {
     this.getBoards();
       }
     }
-   // this.myBoards.columns.push({name: name, tasks: []});
+  }
+
+  addTask(boardName: string, columnName: string, task:Task) {
+    console.log('clicked')
+    console.log(boardName)
+    console.log(columnName)
+    console.log(task)
+    for(let board of this.myBoards) {
+      if(board.name === boardName) {
+        for(let column of board.columns) {
+          if(column.name === columnName) {
+            task.status = column.name
+            task.subtasks = []
+            column.tasks?.push(task);
+            localStorage.setItem('boards', JSON.stringify(this.myBoards));
+            this.getBoards();
+          }
+        }
+      }
+    }
   }
 }

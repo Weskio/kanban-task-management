@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-multi-input-box',

@@ -1,8 +1,8 @@
 export interface Task {
-    title: string,
-    description: string,
-    status: string,
-    subtasks: SubTask[]
+    title?: string | null | undefined,
+    description?: string | null | undefined,
+    status?: string,
+    subtasks?: SubTask[]
 }
 
 interface SubTask{
