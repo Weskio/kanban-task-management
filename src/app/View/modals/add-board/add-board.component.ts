@@ -5,6 +5,7 @@ import { MultiInputBoxComponent } from '../../shareables/multi-input-box/multi-i
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DataService } from '../../../controller/data.service';
 
 @Component({
   selector: 'app-add-board',
@@ -17,11 +18,17 @@ export class AddBoardComponent {
   constructor(
     public modalToggleService: ModalToggleService,
     public themeToggleService: ThemeToggleService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dataService: DataService
   ) {}
 
   addBoardForm = this.fb.group({
     name: ['', Validators.required]
   })
+
+  addBoard(){
+    const name = this.addBoardForm.value.name
+    this.dataService.addBoard(name)
+  }
 
 }

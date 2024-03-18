@@ -527,33 +527,29 @@ export class DataService {
     }
   }
 
-  // changeTaskColumn(boardName: string, initialColumnName: string, destColumnName: string, task: Task) {
-  //   for (let board of this.myBoards) {
-  //     if (board.name === boardName) {
-  //       const initialColumnIndex = board.columns.findIndex(column => column.name === initialColumnName);
-  //       if (initialColumnIndex !== -1) {
-  //         const initialColumn = board.columns[initialColumnIndex];
-  //         const taskIndex = initialColumn.tasks.findIndex(t => t === task);
-  //         if (taskIndex !== -1) {
-  //           const movedTask = initialColumn.tasks.splice(taskIndex, 1)[0];
-  //           const destColumn = board.columns.find(column => column.name === destColumnName);
-  //           if (destColumn) {
-  //             movedTask.status = destColumn.name;
-  //             destColumn.tasks.push(movedTask);
-  //             localStorage.setItem('boards', JSON.stringify(this.myBoards));
-  //             this.getBoards();
-  //             return; 
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-  addBoard(board: Board){
-   this.myBoards.push(board)
-   //this.addColumn()
+  deleteTask(boardName: string, columnName: string, taskIndex: number) {
+    for(let board of this.myBoards) {
+      if(board.name === boardName) {
+        for(let column of board.columns) {
+          if(column.name === columnName) {
+            column.tasks?.splice(taskIndex, 1);
+            localStorage.setItem('boards', JSON.stringify(this.myBoards));
+            this.getBoards()
+          }
+        }
+      }
+    }
   }
+
+ addBoard(name: any){
+  this.myBoards.push({
+    name: name, columns: [],
+    isActive: false
+  });
+  localStorage.setItem('boards', JSON.stringify(this.myBoards));
+  this.getBoards();
+  location.reload()
+ }
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
