@@ -47,7 +47,7 @@ export class CrudService {
 
 
   deleteTask(columnName: string){
-    this.dataService.deleteTask(this.getBoardName(), columnName);
+    this.dataService.deleteTask(this.getBoardName() || this.dataService.getBoards()[0].name, columnName);
     this.dataService.getPColumns().subscribe((data: any) => {
       this.columns = data;
     });

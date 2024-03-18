@@ -17,7 +17,7 @@
     >
       <!-- Modal header -->
       <div
-        class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600"
+        class="flex items-center justify-between p-4 md:p-5 rounded-t "
       >
         <h3 class="text-lg font-semibold">
           {{ formTitle }}
@@ -27,7 +27,7 @@
       <form class="p-4 md:p-5" [formGroup]="addColumnForm" (ngSubmit)="addColumn()">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
-            <label for="name" class="block mb-2 text-sm font-medium dark:"
+            <label for="name" class="block mb-2 text-sm font-medium"
               >Name</label
             >
             <input
@@ -44,7 +44,7 @@
             />
           </div>
 
-          <label for="name" class="block text-sm font-medium dark:"
+          <label for="name" class="block text-sm font-medium"
             >Columns</label
           >
 
@@ -106,7 +106,7 @@
 
           <div class="col-span-2">
             <button
-              class="text-[#635FC7] bg-white hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="text-[#635FC7] bg-white hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center"
               [ngClass]="{
                 'bg-white transition-colors duration-300':
                   themeToggleService.darkTheme,
@@ -121,7 +121,7 @@
 
         <button
           type="submit"
-          class="bg-[#635FC7] text-white hover:bg-indigo-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="bg-[#635FC7] text-white hover:bg-indigo-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full w-full text-sm px-5 py-2.5 text-center"
         >
           Save Changes
         </button>
