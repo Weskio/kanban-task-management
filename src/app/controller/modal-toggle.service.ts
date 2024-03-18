@@ -8,6 +8,7 @@ export class ModalToggleService {
   isAddColumnModalShown: boolean = false;
   isAddBoardShown: boolean = false;
   isTaskDetailsShown: boolean = false;
+  isDeleteModalShown: boolean = false
   formTitle: string = '';
   taskName: string =''
   taskDesc: string = ''
@@ -29,6 +30,9 @@ export class ModalToggleService {
     } else if (modalType === 'task-details') {
       this.isTaskDetailsShown = !this.isTaskDetailsShown;
       this.taskName = taskName
+    }
+    else if(modalType === 'delete'){
+      this.isDeleteModalShown = !this.isDeleteModalShown
     }
   }
 

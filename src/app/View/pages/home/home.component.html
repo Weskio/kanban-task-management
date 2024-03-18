@@ -24,6 +24,9 @@
     [taskColumn]="modalToggleService.taskColumn"
   />
   }
+  @if (modalToggleService.isDeleteModalShown) {
+    <app-delete/>
+  }
 
   <app-dashboard-frame />
   <app-sidebar [ngClass]="{ invisible: showSidebarService.isSidebarShown }" />

@@ -1,0 +1,46 @@
+<div
+  (click)="modalToggleService.modalToggle('delete', '', '')"
+  class="overflow-y-auto h-full fixed backdrop-blur-sm bg-black bg-opacity-20 top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 scroll-bar-hide"
+>
+  <div
+    (click)="$event.stopPropagation()"
+    class="relative p-4 w-full ml-auto mr-auto mt-72 max-w-md max-h-full"
+  >
+    <!-- Modal content -->
+    <div
+      class="relative bg-dark-secondary rounded-lg shadow dark:bg-gray-700"
+      [ngClass]="{
+        'bg-dark-secondary': themeToggleService.darkTheme,
+        'bg-light-primary transition-colors duration-300 border-light-borderline text-light-text':
+          themeToggleService.lightTheme
+      }"
+    >
+      <!-- Modal header -->
+      <div class=" items-center justify-between p-4 md:p-5 rounded-t">
+        <h3 class="text-xl font-semibold text-red-500">Delete this board</h3>
+
+        <p class="text-gray-400 text-xs mt-5 tracking-wider">
+          Are you sure you want to delete the '{{crudService.getBoardName()}}' board? This
+          action will remove all columns and tasks and cannot be reversed.
+        </p>
+
+        <div class="mt-6 flex gap-4">
+          <button
+            (click)="dataService.deleteBoard(crudService.getBoardName())"
+            class="bg-red-500 hover:bg-opacity-70 text-white text-xs font-bold py-3 px-4 rounded-full w-full"
+          >
+            Delete
+          </button>
+          <button
+            (click)="modalToggleService.modalToggle('delete', '', '')"
+            class="hover:bg-opacity-70 text-[#635FC7] text-xs font-bold py-2 px-4 rounded-full w-full"
+            [ngClass]="{'bg-white': themeToggleService.darkTheme, 'bg-purple-100': themeToggleService.lightTheme}"
+            >
+        Cancel
+        </button>
+        </div>
+      </div>
+      <!-- Modal body -->
+    </div>
+  </div>
+</div>

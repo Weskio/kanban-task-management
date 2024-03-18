@@ -25,29 +25,31 @@ import {
   CdkDropList,
   CdkDropListGroup,
 } from '@angular/cdk/drag-drop';
+import { DeleteComponent } from "../../modals/delete/delete.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
-  imports: [
-    DashboardFrameComponent,
-    AddTaskComponent,
-    AddColumnComponent,
-    AddBoardComponent,
-    EditBoardDropdownComponent,
-    NewColumnComponent,
-    SidebarComponent,
-    ShowSidebarComponent,
-    NgClass,
-    TaskCardComponent,
-    ColumnComponent,
-    TaskDetailsComponent,
-    CdkDropList,
-    CdkDrag,
-    CdkDropListGroup,
-  ],
+    selector: 'app-home',
+    standalone: true,
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css',
+    imports: [
+        DashboardFrameComponent,
+        AddTaskComponent,
+        AddColumnComponent,
+        AddBoardComponent,
+        EditBoardDropdownComponent,
+        NewColumnComponent,
+        SidebarComponent,
+        ShowSidebarComponent,
+        NgClass,
+        TaskCardComponent,
+        ColumnComponent,
+        TaskDetailsComponent,
+        CdkDropList,
+        CdkDrag,
+        CdkDropListGroup,
+        DeleteComponent
+    ]
 })
 export class HomeComponent {
   constructor(

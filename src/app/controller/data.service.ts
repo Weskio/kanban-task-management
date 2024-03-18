@@ -477,8 +477,6 @@ export class DataService {
     }
   }
 
-  
-
   columns: any;
 
   getBoards() {
@@ -549,7 +547,18 @@ export class DataService {
   });
   localStorage.setItem('boards', JSON.stringify(this.myBoards));
   this.getBoards();
-  //location.reload()
+  location.reload()
+ }
+
+ deleteBoard(boardName: string) {
+  for(let board of this.myBoards) {
+    if(board.name === boardName) {
+      this.myBoards.splice(this.myBoards.indexOf(board), 1);
+      localStorage.setItem('boards', JSON.stringify(this.myBoards));
+      this.getBoards();
+    }
+  }
+  location.reload()
  }
 
   drop(event: CdkDragDrop<any>) {
