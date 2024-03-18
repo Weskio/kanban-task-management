@@ -17,8 +17,10 @@
     </p>
   </div>
 
-  @for(task of tasks; track task){
-    <div (click)="modalToggleService.taskDetails(task.title, task.subtasks, task.Description, getSubTasksName(task))" >
+  <div
+ >
+      @for(task of tasks; track task){
+    <div (click)="modalToggleService.taskDetails(task.title, task.subtasks, task.description, getSubTasksName(task), columnName)" cdkDrag [cdkDragData]="task">
       <app-task-card
     [taskName]="task.title"
     [subTasksTotal]="task.subtasks.length"
@@ -31,4 +33,9 @@
   } @empty {
   <app-empty-column />
   }
+
+  </div>
+
+
+
 </main>

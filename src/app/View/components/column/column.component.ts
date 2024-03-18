@@ -5,13 +5,16 @@ import { CurrentBoardService } from '../../../controller/current-board.service';
 import { EmptyColumnComponent } from "../empty-column/empty-column.component";
 import { NgClass } from '@angular/common';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
+import {
+  CdkDrag,
+} from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-column',
     standalone: true,
     templateUrl: './column.component.html',
     styleUrl: './column.component.css',
-    imports: [TaskCardComponent, EmptyColumnComponent, NgClass]
+    imports: [TaskCardComponent, EmptyColumnComponent, NgClass,CdkDrag]
 })
 export class ColumnComponent {
 

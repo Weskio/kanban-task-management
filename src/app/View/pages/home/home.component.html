@@ -1,5 +1,5 @@
 <main
-  class="w-[115vw] "
+  class="w-[115vw]"
   [ngClass]="{
     'bg-dark-background transition-colors duration-300  text-dark-text':
       themeToggleService.darkTheme,
@@ -21,6 +21,7 @@
     [taskDesc]="modalToggleService.taskDesc"
     [subTasks]="modalToggleService.subTasks"
     [subtaskName]="modalToggleService.subTaskName"
+    [taskColumn]="modalToggleService.taskColumn"
   />
   }
 
@@ -38,14 +39,19 @@
       />
     </div>
 
-    <div class="columns flex gap-7 mr-5 mt-32 ml-10">
+    <div class="columns flex gap-7 mr-5 mt-32 ml-10" cdkDropListGroup>
       @for(column of columns; track column; let index = $index){
+
       <app-column
         [columnName]="column.name"
         [tasks]="column.tasks"
         [columnNumber]="index"
         [columnTotal]="column.tasks.length"
+        cdkDropList
+        [cdkDropListData]="column.tasks"
+        (cdkDropListDropped)="drop($event)"
       />
+
       } @if(columns.length < 6){
       <app-new-column />
       }

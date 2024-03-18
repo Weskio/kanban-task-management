@@ -20,6 +20,7 @@ export class TaskDetailsComponent {
     @Input() subTasks!:[]
     @Input() taskDesc!:string
     @Input() subtaskName!:string[]
+    @Input() taskColumn!: string
 
     
 }

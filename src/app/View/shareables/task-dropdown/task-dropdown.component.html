@@ -11,13 +11,25 @@
     class="block mb-2 text-sm font-medium"
     >{{ label }}</label
   >
-  <div
+  @if(crudService.selectedStatus === '' && columnName){
+<div
     (click)="dropdownToggleService.dropdownToggle('status')"
     class="bg-transparent cursor-pointer border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
     [ngClass]="{'border-[#3e3f4e]': themeToggleService.darkTheme}"
     >
-    {{crudService.selectedStatus || columns[0].name}}
+    {{columnName}}
   </div>
+  }
+  @else if(crudService.selectedStatus) {
+    <div
+    (click)="dropdownToggleService.dropdownToggle('status')"
+    class="bg-transparent cursor-pointer border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
+    [ngClass]="{'border-[#3e3f4e]': themeToggleService.darkTheme}"
+    >
+    {{crudService.selectedStatus || columnName}}
+  </div>
+  }
+  
 
   @if(dropdownToggleService.isStatusDropdownShown){
   <div class="w-full">

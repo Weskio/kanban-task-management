@@ -39,8 +39,7 @@ export class CrudService {
   }
 
   addTask(task: Task){
-    console.log(this.getBoardName())
-    this.dataService.addTask(this.getBoardName(), this.selectedStatus, task);
+    this.dataService.addTask(this.getBoardName() || this.dataService.getBoards()[0].name, this.selectedStatus, task);
     this.dataService.getPColumns().subscribe((data: any) => {
       this.columns = data;
     });

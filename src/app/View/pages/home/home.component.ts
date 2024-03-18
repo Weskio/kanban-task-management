@@ -17,6 +17,14 @@ import { ColumnComponent } from '../../components/column/column.component';
 import { TaskDetailsComponent } from '../../modals/task-details/task-details.component';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { CurrentBoardService } from '../../../controller/current-board.service';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  CdkDrag,
+  CdkDropList,
+  CdkDropListGroup,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +44,9 @@ import { CurrentBoardService } from '../../../controller/current-board.service';
     TaskCardComponent,
     ColumnComponent,
     TaskDetailsComponent,
+    CdkDropList,
+    CdkDrag,
+    CdkDropListGroup,
   ],
 })
 export class HomeComponent {
@@ -51,13 +62,13 @@ export class HomeComponent {
   columns: any;
 
   ngOnInit() {
-    this.dataService.ngOnInit()
-    console.log(this.dataService.myBoards)
+    this.dataService.ngOnInit();
     this.dataService.getPColumns().subscribe((data: any) => {
       this.columns = data;
-    
-      console.log(this.dataService.myBoards)
     });
   }
 
+  drop(event: CdkDragDrop<any>) {
+   this.dataService.drop(event)
+  }
 }

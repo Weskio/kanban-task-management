@@ -13,6 +13,7 @@ export class ModalToggleService {
   taskDesc: string = ''
   subTasks!:[]
   subTaskName!: string[]
+  taskColumn!:string
 
   constructor() {}
 
@@ -31,10 +32,11 @@ export class ModalToggleService {
     }
   }
 
-  taskDetails(taskName:string, subtasks: [], taskDesc:string, subTaskName: any){
+  taskDetails(taskName:string, subtasks: [], taskDesc:string, subTaskName: any, taskColumn:string){
     this.subTaskName = subTaskName
     this.taskName = taskName
     this.subTasks = subtasks
     this.taskDesc = taskDesc
+    this.taskColumn = taskColumn
   }
 }

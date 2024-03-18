@@ -19,7 +19,7 @@ constructor( public themeToggleService: ThemeToggleService){}
   @Input() isDeleteSvgShown?:boolean
 
   inputBoxes: number[] =[1];
-
+ 
   addInputBox() {
     if(this.inputBoxes.length < 6){
       this.inputBoxes.push(2);

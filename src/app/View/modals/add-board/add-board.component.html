@@ -23,7 +23,7 @@
        
       </div>
       <!-- Modal body -->
-      <form class="p-4 md:p-5">
+      <form class="p-4 md:p-5" [formGroup]="addBoardForm">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
             <label
@@ -35,13 +35,13 @@
               type="text"
               name="name"
               id="name"
+              formControlName="name"
               class="bg-transparent  border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
               [ngClass]="{
                 'border-[#3e3f4e] text-white': themeToggleService.darkTheme,
                 'border-light-borderline text-black': themeToggleService.lightTheme
               }"
               required=""
-              formControlName="title"
             />
           </div>
 
