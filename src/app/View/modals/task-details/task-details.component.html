@@ -4,7 +4,7 @@
 >
   <div
     (click)="$event.stopPropagation()"
-    class="relative p-4 w-full ml-auto mr-auto mt-44 max-w-md max-h-full"
+    class="relative p-4 w-full ml-auto mr-auto mt-44 max-w-lg max-h-full"
   >
     <div
       class="relative pb-6 rounded-lg shadow dark:bg-gray-700"
@@ -21,6 +21,7 @@
         <h3 class="text-lg font-semibold">{{taskName}}</h3>
 
         <button
+        (click)="editDropdownToggle()"
           class="add-btn flex items-center border-transparent hover:bg-[#20212c] p-1 lg:rounded-full rounded-xl px-2 hover:opacity-60"
         >
           <img
@@ -29,6 +30,19 @@
             class="h-4 lg:h-5 cursor-pointer"
           />
         </button>
+
+        @if(isEditDropdownShown){
+           <div  (click)="$event.stopPropagation()" class="absolute right-8 z-40 mt-[110px]">
+          <ul class=" w-48 p-4 rounded-md shadow-lg "
+          [ngClass]="{'bg-dark-background': themeToggleService.darkTheme, 'bg-white': themeToggleService.lightTheme}"
+          >
+              <li class="text-gray-400 cursor-pointer hover:opacity-55">Edit Task</li>
+              <li (click)="crudService.deleteTask(taskColumn)" class="text-red-500 cursor-pointer mt-2 hover:opacity-55">Delete Task</li>
+          </ul>
+        </div>
+        }
+
+       
       </div>
 
       @if(taskDesc){
@@ -40,7 +54,7 @@
       
 
       <div class="m px-5 mt-6">
-        <p>Subtasks</p>
+        <p>Subtasks </p>
         @for(item of subtaskName; track subtaskName){
         <div
           class="mt-4 p-2 rounded-lg shadow"
@@ -70,6 +84,10 @@
          
         </div>
 
+      }
+
+      @empty {
+        <p class="text-gray-400 text-[0.8rem] mt-2">No subtasks</p>
       }
 
         <app-task-dropdown [label]="'Current Status'" [columnName]="taskColumn" />

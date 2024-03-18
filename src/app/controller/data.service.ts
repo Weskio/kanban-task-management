@@ -526,14 +526,19 @@ export class DataService {
     }
   }
 
-  deleteTask(boardName: string, columnName: string, taskIndex: number) {
+  deleteTask(boardName: string, columnName: string) {
     for(let board of this.myBoards) {
       if(board.name === boardName) {
         for(let column of board.columns) {
           if(column.name === columnName) {
-            column.tasks?.splice(taskIndex, 1);
+            if(column.tasks !== undefined){
+              for(let task of column.tasks) {
+            column.tasks.splice(column.tasks.indexOf(task), 1);
             localStorage.setItem('boards', JSON.stringify(this.myBoards));
             this.getBoards()
+            break;
+           }
+            }
           }
         }
       }

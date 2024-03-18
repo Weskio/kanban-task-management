@@ -44,4 +44,12 @@ export class CrudService {
       this.columns = data;
     });
   }
+
+
+  deleteTask(columnName: string){
+    this.dataService.deleteTask(this.getBoardName(), columnName);
+    this.dataService.getPColumns().subscribe((data: any) => {
+      this.columns = data;
+    });
+  }
 }
