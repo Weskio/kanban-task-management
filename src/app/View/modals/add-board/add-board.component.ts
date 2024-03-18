@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ModalToggleService } from '../../../controller/modal-toggle.service';
-import { DropdownToggleService } from '../../../controller/dropdown-toggle.service';
 import { MultiInputBoxComponent } from '../../shareables/multi-input-box/multi-input-box.component';
 import { ThemeToggleService } from '../../../controller/theme-toggle.service';
 import { NgClass } from '@angular/common';
@@ -19,16 +18,23 @@ export class AddBoardComponent {
     public modalToggleService: ModalToggleService,
     public themeToggleService: ThemeToggleService,
     private fb: FormBuilder,
-    private dataService: DataService
+    private dataService: DataService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   addBoardForm = this.fb.group({
     name: ['', Validators.required]
   })
+  private updateData() {
+    this.cdr.detectChanges();
+  }
+
 
   addBoard(){
     const name = this.addBoardForm.value.name
     this.dataService.addBoard(name)
+    this.updateData();
   }
 
+ 
 }

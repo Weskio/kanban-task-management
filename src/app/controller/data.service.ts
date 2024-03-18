@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
@@ -8,9 +8,6 @@ import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
-  CdkDrag,
-  CdkDropList,
-  CdkDropListGroup,
 } from '@angular/cdk/drag-drop';
 
 @Injectable({
@@ -465,6 +462,10 @@ export class DataService {
     },
   ];
 
+  constructor(private currentBoard: CurrentBoardService) {}
+
+  
+
   ngOnInit() {
     let storedBoards = localStorage.getItem('boards');
     if (storedBoards) {
@@ -476,7 +477,7 @@ export class DataService {
     }
   }
 
-  constructor(private currentBoard: CurrentBoardService) {}
+  
 
   columns: any;
 
@@ -548,7 +549,7 @@ export class DataService {
   });
   localStorage.setItem('boards', JSON.stringify(this.myBoards));
   this.getBoards();
-  location.reload()
+  //location.reload()
  }
 
   drop(event: CdkDragDrop<any>) {
