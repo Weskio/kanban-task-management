@@ -10,6 +10,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { DataService } from '../../../controller/data.service';
 
 @Component({
   selector: 'app-add-column',
@@ -26,7 +27,8 @@ export class AddColumnComponent {
     public modalToggleService: ModalToggleService,
     public themeToggleService: ThemeToggleService,
     public crudService: CrudService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public dataService: DataService
   ) {
   }
 

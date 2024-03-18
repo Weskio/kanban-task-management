@@ -34,6 +34,7 @@
               type="text"
               name="name"
               id="name"
+              disabled
               [value]="crudService.getBoardName() || crudService.initialBoardName"
               class="bg-transparent text-gray-500 border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
               [ngClass]="{
@@ -66,7 +67,8 @@
             </div>
 
             <svg
-              class="w-8 h-8 mt-2 text-gray-400 dark:"
+            (click)="dataService.deleteColumn(crudService.getBoardName() || crudService.initialBoardName, column.name)"
+              class="w-8 h-8 mt-2 text-gray-400 cursor-pointer hover:opacity-70"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

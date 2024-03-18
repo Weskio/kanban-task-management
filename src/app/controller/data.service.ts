@@ -561,6 +561,21 @@ export class DataService {
   location.reload()
  }
 
+ deleteColumn(boardName: string, columnName: string) {
+  console.log(boardName, columnName)
+  for(let board of this.myBoards) {
+    if(board.name === boardName) {
+      for(let column of board.columns) {
+        if(column.name === columnName) {
+          board.columns.splice(board.columns.indexOf(column), 1);
+          localStorage.setItem('boards', JSON.stringify(this.myBoards));
+          this.getBoards();
+        }
+      }
+    }
+  }
+ }
+
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
