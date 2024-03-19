@@ -1,5 +1,5 @@
 <div
-(click)="modalToggleService.modalToggle('task-details', '', taskName)"
+  (click)="modalToggleService.modalToggle('task-details', '', taskName)"
   class="overflow-y-auto h-full fixed backdrop-blur-sm bg-black bg-opacity-20 top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 scroll-bar-hide"
 >
   <div
@@ -7,7 +7,7 @@
     class="relative p-4 w-full ml-auto mr-auto mt-44 max-w-lg max-h-full"
   >
     <div
-      class="relative pb-6 rounded-lg shadow "
+      class="relative pb-6 rounded-lg shadow"
       [ngClass]="{
         'bg-dark-secondary transition-colors duration-300 text-dark-text':
           themeToggleService.darkTheme,
@@ -15,13 +15,11 @@
           themeToggleService.lightTheme
       }"
     >
-      <div
-        class="flex items-center justify-between p-4 md:p-5 rounded-t "
-      >
-        <h3 class="text-lg font-semibold">{{taskName}}</h3>
+      <div class="flex items-center justify-between p-4 md:p-5 rounded-t">
+        <h3 class="text-lg font-semibold">{{ taskName }}</h3>
 
         <button
-        (click)="editDropdownToggle()"
+          (click)="editDropdownToggle()"
           class="add-btn flex items-center border-transparent hover:bg-[#20212c] p-1 lg:rounded-full rounded-xl px-2 hover:opacity-60"
         >
           <img
@@ -32,30 +30,40 @@
         </button>
 
         @if(isEditDropdownShown){
-           <div  (click)="$event.stopPropagation()" class="absolute right-8 z-40 mt-[110px]">
-          <ul class=" w-48 p-4 rounded-md shadow-lg "
-          [ngClass]="{'bg-dark-background': themeToggleService.darkTheme, 'bg-white': themeToggleService.lightTheme}"
+        <div
+          (click)="$event.stopPropagation()"
+          class="absolute right-8 z-40 mt-[110px]"
+        >
+          <ul
+            class="w-48 p-4 rounded-md shadow-lg"
+            [ngClass]="{
+              'bg-dark-background': themeToggleService.darkTheme,
+              'bg-white': themeToggleService.lightTheme
+            }"
           >
-              <li class="text-gray-400 cursor-pointer hover:opacity-55">Edit Task</li>
-              <li (click)="crudService.deleteTask(taskColumn)" class="text-red-500 cursor-pointer mt-2 hover:opacity-55">Delete Task</li>
+            <li class="text-gray-400 cursor-pointer hover:opacity-55">
+              Edit Task
+            </li>
+            <li
+              (click)="crudService.deleteTask(taskColumn)"
+              class="text-red-500 cursor-pointer mt-2 hover:opacity-55"
+            >
+              Delete Task
+            </li>
           </ul>
         </div>
         }
-
-       
       </div>
 
       @if(taskDesc){
-         <p class="text-gray-400 text-[0.8rem] px-5">{{taskDesc}}</p>
+      <p class="text-gray-400 text-[0.8rem] px-5">{{ taskDesc }}</p>
+      } @else {
+      <p class="text-gray-400 text-[0.8rem] px-5">No description provided</p>
       }
-      @else {
-        <p class="text-gray-400 text-[0.8rem] px-5">No description provided</p>
-      }
-      
 
-      <div class="m px-5 mt-6">
-        <p>Subtasks </p>
-        @for(item of subtaskName; track subtaskName){
+      <div class="m text-sm px-5 mt-6">
+        <p>Subtasks ({{ getSubTasksDone() || 0 }} of {{getSubTasksTotal()}})</p>
+        @for(item of subTasks; track item){
         <div
           class="mt-4 p-2 rounded-lg shadow"
           [ngClass]="{
@@ -65,32 +73,36 @@
               themeToggleService.lightTheme
           }"
         >
-       
-           <div class="checkbox-wrapper-13 flex gap-2">
-           
-            <input type="checkbox" id="c1-13" class="peer" />
+          <div class="checkbox-wrapper-13 flex gap-2">
+            @if(item?.isCompleted === true) {
+            <input (click)="dataService.markSubtaskDone(item)" type="checkbox" id="c1-13" class="peer" checked />
             <label
               for="checkbox"
               class="peer-checked:line-through transition-colors duration-300 peer-checked:text-gray-400"
             >
-           
-              {{item}}
-            
-             
+              {{ item.title }}
             </label>
-          
+
+            } @else {
+            <input (click)="dataService.markSubtaskDone(item)" type="checkbox" id="c1-13" class="peer" />
+            <label
+              for="checkbox"
+              class="peer-checked:line-through transition-colors w-[80%] duration-300 peer-checked:text-gray-400"
+            >
+              {{ item.title }}
+            </label>
+            }
           </div>
-        
-         
         </div>
 
-      }
-
-      @empty {
+        } @empty {
         <p class="text-gray-400 text-[0.8rem] mt-2">No subtasks</p>
-      }
+        }
 
-        <app-task-dropdown [label]="'Current Status'" [columnName]="taskColumn" />
+        <app-task-dropdown
+          [label]="'Current Status'"
+          [columnName]="taskColumn"
+        />
       </div>
     </div>
   </div>

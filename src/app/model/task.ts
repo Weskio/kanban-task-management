@@ -5,7 +5,7 @@ export interface Task {
     subtasks?: SubTask[]
 }
 
-interface SubTask{
+export interface SubTask{
     title: string,
     isCompleted: boolean,
 }

@@ -3,7 +3,7 @@ import { Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
 import { Column } from '../model/column';
-import { Task } from '../model/task';
+import { SubTask, Task } from '../model/task';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -464,8 +464,6 @@ export class DataService {
 
   constructor(private currentBoard: CurrentBoardService) {}
 
-  
-
   ngOnInit() {
     let storedBoards = localStorage.getItem('boards');
     if (storedBoards) {
@@ -505,7 +503,6 @@ export class DataService {
       if(board.name === boardName) {
         board.columns.push({name: name, tasks: []});
         localStorage.setItem('boards', JSON.stringify(this.myBoards));
-    this.getBoards();
       }
     }
   }
@@ -519,7 +516,6 @@ export class DataService {
             task.subtasks = []
             column.tasks?.push(task);
             localStorage.setItem('boards', JSON.stringify(this.myBoards));
-            this.getBoards()
           }
         }
       }
@@ -527,6 +523,7 @@ export class DataService {
   }
 
   deleteTask(boardName: string, columnName: string) {
+    console.log(boardName, columnName)
     for(let board of this.myBoards) {
       if(board.name === boardName) {
         for(let column of board.columns) {
@@ -535,7 +532,6 @@ export class DataService {
               for(let task of column.tasks) {
             column.tasks.splice(column.tasks.indexOf(task), 1);
             localStorage.setItem('boards', JSON.stringify(this.myBoards));
-            this.getBoards()
             break;
            }
             }
@@ -560,7 +556,6 @@ export class DataService {
     if(board.name === boardName) {
       this.myBoards.splice(this.myBoards.indexOf(board), 1);
       localStorage.setItem('boards', JSON.stringify(this.myBoards));
-      this.getBoards();
     }
   }
   location.reload()
@@ -574,7 +569,6 @@ export class DataService {
         if(column.name === columnName) {
           board.columns.splice(board.columns.indexOf(column), 1);
           localStorage.setItem('boards', JSON.stringify(this.myBoards));
-          this.getBoards();
         }
       }
     }
@@ -594,5 +588,27 @@ export class DataService {
       localStorage.setItem('boards', JSON.stringify(this.myBoards));
     }
   }
+
+   markSubtaskDone(subtask: SubTask) {
+    for(let board of this.myBoards){
+      for(let column of board.columns){
+        if(column.tasks){
+        for(let task of column.tasks){
+          if(task.subtasks){
+          for(let sub of task.subtasks){
+            if(sub === subtask){
+              sub.isCompleted= !sub.isCompleted
+              localStorage.setItem('boards', JSON.stringify(this.myBoards));
+            }
+          }
+          }
+          }
+        }
+      }
+    }
+    }
+
+
+   }
   
-}
+
