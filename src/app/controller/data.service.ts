@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Board } from '../model/board';
 import { CurrentBoardService } from './current-board.service';
@@ -14,8 +14,8 @@ import {
   providedIn: 'root',
 })
 export class DataService {
-  localBoards: Board[] = [];
-  customBoards: Board[] = [];
+  // localBoards: Board[] = [];
+  // customBoards: Board[] = [];
   myBoards: Board[] = [];
   customColumns: Column[] = [];
   'boards': Board[] = [
@@ -499,21 +499,21 @@ export class DataService {
   }
 
   addColumn(name: string, boardName: string) {
-    for(let board of this.myBoards) {
-      if(board.name === boardName) {
-        board.columns.push({name: name, tasks: []});
+    for (let board of this.myBoards) {
+      if (board.name === boardName) {
+        board.columns.push({ name: name, tasks: [] });
         localStorage.setItem('boards', JSON.stringify(this.myBoards));
       }
     }
   }
 
-  addTask(boardName: string, columnName: string, task:Task) {
-    for(let board of this.myBoards) {
-      if(board.name === boardName) {
-        for(let column of board.columns) {
-          if(column.name === columnName) {
-            task.status = column.name
-            task.subtasks = []
+  addTask(boardName: string, columnName: string, task: Task) {
+    for (let board of this.myBoards) {
+      if (board.name === boardName) {
+        for (let column of board.columns) {
+          if (column.name === columnName) {
+            task.status = column.name;
+            task.subtasks = [];
             column.tasks?.push(task);
             localStorage.setItem('boards', JSON.stringify(this.myBoards));
           }
@@ -523,17 +523,17 @@ export class DataService {
   }
 
   deleteTask(boardName: string, columnName: string) {
-    console.log(boardName, columnName)
-    for(let board of this.myBoards) {
-      if(board.name === boardName) {
-        for(let column of board.columns) {
-          if(column.name === columnName) {
-            if(column.tasks !== undefined){
-              for(let task of column.tasks) {
-            column.tasks.splice(column.tasks.indexOf(task), 1);
-            localStorage.setItem('boards', JSON.stringify(this.myBoards));
-            break;
-           }
+    console.log(boardName, columnName);
+    for (let board of this.myBoards) {
+      if (board.name === boardName) {
+        for (let column of board.columns) {
+          if (column.name === columnName) {
+            if (column.tasks !== undefined) {
+              for (let task of column.tasks) {
+                column.tasks.splice(column.tasks.indexOf(task), 1);
+                localStorage.setItem('boards', JSON.stringify(this.myBoards));
+                break;
+              }
             }
           }
         }
@@ -541,74 +541,76 @@ export class DataService {
     }
   }
 
- addBoard(name: any){
-  this.myBoards.push({
-    name: name, columns: [],
-    isActive: false
-  });
-  localStorage.setItem('boards', JSON.stringify(this.myBoards));
-  this.getBoards();
-  location.reload()
- }
-
- deleteBoard(boardName: string) {
-  for(let board of this.myBoards) {
-    if(board.name === boardName) {
-      this.myBoards.splice(this.myBoards.indexOf(board), 1);
-      localStorage.setItem('boards', JSON.stringify(this.myBoards));
-    }
+  addBoard(name: any) {
+    this.myBoards.push({
+      name: name,
+      columns: [],
+      isActive: false,
+    });
+    localStorage.setItem('boards', JSON.stringify(this.myBoards));
+    this.getBoards();
+    location.reload();
   }
-  location.reload()
- }
 
- deleteColumn(boardName: string, columnName: string) {
-  console.log(boardName, columnName)
-  for(let board of this.myBoards) {
-    if(board.name === boardName) {
-      for(let column of board.columns) {
-        if(column.name === columnName) {
-          board.columns.splice(board.columns.indexOf(column), 1);
-          localStorage.setItem('boards', JSON.stringify(this.myBoards));
+  deleteBoard(boardName: string) {
+    for (let board of this.myBoards) {
+      if (board.name === boardName) {
+        this.myBoards.splice(this.myBoards.indexOf(board), 1);
+        localStorage.setItem('boards', JSON.stringify(this.myBoards));
+      }
+    }
+    location.reload();
+  }
+
+  deleteColumn(boardName: string, columnName: string) {
+    for (let board of this.myBoards) {
+      if (board.name === boardName) {
+        for (let column of board.columns) {
+          if (column.tasks?.length === 0) {
+            if (column.name === columnName) {
+              board.columns.splice(board.columns.indexOf(column), 1);
+              localStorage.setItem('boards', JSON.stringify(this.myBoards));
+            }
+          }
         }
       }
     }
   }
- }
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
       localStorage.setItem('boards', JSON.stringify(this.myBoards));
     }
   }
 
-   markSubtaskDone(subtask: SubTask) {
-    for(let board of this.myBoards){
-      for(let column of board.columns){
-        if(column.tasks){
-        for(let task of column.tasks){
-          if(task.subtasks){
-          for(let sub of task.subtasks){
-            if(sub === subtask){
-              sub.isCompleted= !sub.isCompleted
-              localStorage.setItem('boards', JSON.stringify(this.myBoards));
+  markSubtaskDone(subtask: SubTask) {
+    for (let board of this.myBoards) {
+      for (let column of board.columns) {
+        if (column.tasks) {
+          for (let task of column.tasks) {
+            if (task.subtasks) {
+              for (let sub of task.subtasks) {
+                if (sub === subtask) {
+                  sub.isCompleted = !sub.isCompleted;
+                }
+              }
             }
-          }
-          }
           }
         }
       }
     }
-    }
-
-
-   }
-  
-
+    localStorage.setItem('boards', JSON.stringify(this.myBoards));
+  }
+}
