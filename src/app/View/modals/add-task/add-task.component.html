@@ -25,13 +25,13 @@
       <form class="p-4 md:p-5" [formGroup]="addTaskForm" (ngSubmit)="addTask()">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
-            <label for="name" class="block mb-2 text-sm font-medium"
+            <label class="block mb-2 text-sm font-medium"
               >Title</label
             >
             <input
               type="text"
               name="name"
-              id="name"
+             
               class="bg-transparent border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
               [ngClass]="{
                 'border-[#3e3f4e]': themeToggleService.darkTheme,
@@ -43,12 +43,12 @@
           </div>
           <div class="col-span-2">
             <label
-              for="description"
+              
               class="block mb-2 text-sm font-medium "
               >Description</label
             >
             <textarea
-              id="description"
+            
               rows="4"
               class="bg-transparent border-2 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
               [ngClass]="{

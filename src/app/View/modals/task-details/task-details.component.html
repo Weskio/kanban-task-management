@@ -75,18 +75,18 @@
         >
           <div class="checkbox-wrapper-13 flex gap-2">
             @if(item?.isCompleted === true) {
-            <input (click)="dataService.markSubtaskDone(item)" type="checkbox" id="c1-13" class="peer" checked />
+            <input (click)="dataService.markSubtaskDone(item)" type="checkbox"  class="peer" checked />
             <label
-              for="checkbox"
+              
               class="peer-checked:line-through transition-colors duration-300 peer-checked:text-gray-400"
             >
               {{ item.title }}
             </label>
 
             } @else {
-            <input (click)="dataService.markSubtaskDone(item)" type="checkbox" id="c1-13" class="peer" />
+            <input (click)="dataService.markSubtaskDone(item)" type="checkbox" class="peer" />
             <label
-              for="checkbox"
+              
               class="peer-checked:line-through transition-colors w-[80%] duration-300 peer-checked:text-gray-400"
             >
               {{ item.title }}

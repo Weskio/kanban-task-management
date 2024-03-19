@@ -27,13 +27,13 @@
       <form class="p-4 md:p-5" [formGroup]="addColumnForm" (ngSubmit)="addColumn()">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
-            <label for="name" class="block mb-2 text-sm font-medium"
+            <label class="block mb-2 text-sm font-medium"
               >Name</label
             >
             <input
               type="text"
               name="name"
-              id="name"
+             
               disabled
               [value]="crudService.getBoardName() || crudService.initialBoardName"
               class="bg-transparent text-gray-500 border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
@@ -44,7 +44,7 @@
             />
           </div>
 
-          <label for="name" class="block text-sm font-medium"
+          <label class="block text-sm font-medium"
             >Columns</label
           >
 
@@ -54,7 +54,7 @@
               <input
                 type="text"
                 name="name"
-                id="name"
+               
                 value="{{ column.name }}"
                 class="bg-transparent border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
                 [ngClass]="{
@@ -91,7 +91,7 @@
                 <input
                   type="text"
                   name="newColumnName"
-                  id="newColumnName"
+                  
                   class="bg-transparent border-2 border-[#3e3f4e] text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full p-2.5 px-5"
                   [ngClass]="{
                     'border-[#3e3f4e]': themeToggleService.darkTheme,

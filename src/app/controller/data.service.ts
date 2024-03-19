@@ -486,10 +486,10 @@ export class DataService {
       map((boardName) => {
         const columns =
           this.myBoards.find((board) => {
-            if (boardName !== '') {
-              return board.name === boardName;
-            } else {
+            if (boardName === '') {
               return board.name === this.myBoards[0].name;
+            } else {
+              return board.name === boardName;
             }
           })?.columns || [];
         this.columns = columns;
