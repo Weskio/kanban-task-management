@@ -1,5 +1,4 @@
 <div class="w-96" 
-
 >
   <label
     class="block mb-2 text-sm font-medium"
@@ -16,7 +15,7 @@
   <input
     type="text"
     name="name"
-    class="  border-2  border-[#3e3f4e] h-11 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full px-5"
+    class="border-2  border-[#3e3f4e] h-11 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-[#635FC7] block w-full px-5"
     [ngClass]="{
       'bg-dark-secondary transition-colors duration-300 text-dark-text':
         themeToggleService.darkTheme,
@@ -24,7 +23,8 @@
         themeToggleService.lightTheme
     }"
     required=""
-    formControlName="title"
+    formControlName="columnName"
+    [(ngModel)]="inputBoxes[i]"
   />
   
 

@@ -41,12 +41,9 @@
               'bg-white': themeToggleService.lightTheme
             }"
           >
-            <li class="text-gray-400 cursor-pointer hover:opacity-55">
-              Edit Task
-            </li>
             <li
               (click)="crudService.deleteTask(taskColumn)"
-              class="text-red-500 cursor-pointer mt-2 hover:opacity-55"
+              class="text-red-500 cursor-pointer hover:opacity-55"
             >
               Delete Task
             </li>

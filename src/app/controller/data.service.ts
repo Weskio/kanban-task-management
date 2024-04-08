@@ -486,11 +486,11 @@ export class DataService {
       map((boardName) => {
         const columns =
           this.myBoards.find((board) => {
-            if (boardName === '') {
-              return board.name === this.myBoards[0].name;
-            } else {
+            // if (boardName === '') {
+            //   return board.name === this.myBoards[0].name;
+            // } else {
               return board.name === boardName;
-            }
+            //}
           })?.columns || [];
         this.columns = columns;
         return columns;
@@ -544,7 +544,10 @@ export class DataService {
   addBoard(name: any) {
     this.myBoards.push({
       name: name,
-      columns: [],
+      columns: [{
+        name: 'To Do',
+        tasks: [],
+      }],
       isActive: false,
     });
     localStorage.setItem('boards', JSON.stringify(this.myBoards));
@@ -594,6 +597,8 @@ export class DataService {
       localStorage.setItem('boards', JSON.stringify(this.myBoards));
     }
   }
+
+  changeTaskStatus(){}
 
   markSubtaskDone(subtask: SubTask) {
     for (let board of this.myBoards) {

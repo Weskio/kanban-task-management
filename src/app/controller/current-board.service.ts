@@ -6,7 +6,7 @@ import { DataService } from './data.service';
   providedIn: 'root',
 })
 export class CurrentBoardService {
-  selectedBoardName: string = '';
+  selectedBoardName: string = 'Platform Launch';
 
   public currentBoardName$ = new BehaviorSubject<string>(
     this.selectedBoardName
